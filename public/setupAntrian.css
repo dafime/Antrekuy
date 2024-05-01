@@ -130,7 +130,7 @@
     border-style: none none solid none;
     background-color: #FFFDF4;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    width: 85%;
+    width: 100%;
 }
 
 .form-control-quest {
@@ -138,7 +138,7 @@
     border-style: none none solid none;
     background-color: #FFFDF4;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    width: 75%;
+    width: 85%;
 }
 
 .space-Text-Check {
@@ -209,7 +209,7 @@
 /* Content for maps */
 
 .card.map-card {
-    width: 85%;
+    width: 100%;
 }
 
 .card.map-card .table th {
