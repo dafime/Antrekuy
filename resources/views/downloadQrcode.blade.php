@@ -36,7 +36,7 @@
                                         <img src="/assets/qrcode.png" alt="">
                                         <h2 class="txt-numantrian">SCAN UNTUK ANTRI</h2>
                                         <br>
-                                        <img class="logo-antrekuy" src="/assets/antrekuy_logo.png" alt="">
+                                        <img class="logo-antrekuy" src="/assets/antrekuy_logodark.png" alt="">
                                     </div>
                                 </div>
 
