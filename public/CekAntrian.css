@@ -1,0 +1,119 @@
+body {
+    background-color: #FFFDF4;
+}
+
+.section-up {
+    background-image: url(assets/Image-background-home.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 100% 27%;
+}
+
+.navbar {
+    background-color: #C9AF97;
+    height: 60px;
+    margin-bottom: -3%;
+    box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.289);
+}
+
+.logoNavbar {
+    width: 70px;
+    height: 100px;
+    margin-left: 20px;
+    background-image: url(assets/antrekuy_logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.container {
+    padding-top: 0rem;
+    padding-bottom: 2rem;
+}
+
+.container-home {
+    background-color: white;
+    border-radius: 12px;
+    border: 0.5px solid #C9AF97;
+    padding-bottom: 0%;
+    height: 69%;
+}
+
+.ket-antri {
+    padding-top: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.txt-numantrian {
+    color: #C9AF97;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 0.5rem;
+}
+
+.nama-profile {
+    display: flex;
+    justify-content: center;
+    padding-top: 1.3rem;
+}
+
+.nama-usaha {
+    color: white;
+}
+
+.form-control-nama {
+    outline: none;
+    border-style: none none solid none;
+    background-color: #FFFDF4;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.form {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.form-nama {
+    padding-top: 5%;}
+
+.form-pesanan{
+    padding-top: 5%;
+}
+
+.button-masuk {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.btn-masuk {
+    background-color: #C9AF97;
+    border-radius: 4px;
+    border-style: none;
+    box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 50%;
+}
+
+.btn-masuk a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.pesan-penting{
+    padding-top: 5%;
+    padding-left: 2rem;
+    padding-right: 2rem;}
+
+
+
+
+
+
+
+
+
+
+
+

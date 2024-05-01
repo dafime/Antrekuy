@@ -1,0 +1,132 @@
+.navbar {
+    background-color: #C9AF97;
+    height: 60px;
+    margin-bottom: -3%;
+    box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.289);
+}
+
+.logoNavbar {
+    width: 70px;
+    height: 100px;
+    margin-left: 20px;
+    background-image: url(assets/antrekuy_logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.judul {
+    margin-bottom: 10%;
+}
+
+.textJudul {
+    color: #C9AF97;
+    text-align: center;
+    font-size: 40px;
+}
+
+.card-text {
+    margin-top: -15%;
+    color: #C9AF97;
+    font-size: 35px;
+}
+
+/* img {
+    width: 35rem;
+} */
+
+.logocarded {
+    width: 150px;
+    height: 90px;
+    background-image: url(assets/antrekuy_logodark.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: center;
+}
+
+
+.content2 {
+    margin-top: 5%;
+}
+
+.text1 {
+    display: flex;
+    justify-content: center;
+}
+
+.text1 p {
+    text-align: center;
+}
+
+.text2 {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.text2 p {
+    text-align: center;
+}
+
+.buton {
+    margin-top: -10%;
+}
+
+.button-dwqr {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.button-selesai {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.btn-dwqr {
+    background-color: #C9AF97;
+    border-radius: 4px;
+    border-style: none;
+    box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 50%;
+}
+
+.btn-dwqr a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-selesai {
+    background-color: white;
+    border-radius: 4px;
+    border-style: none;
+    box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 50%;
+}
+
+.btn-selesai a {
+    color: #C9AF97;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+
+/* .content {
+    background: #C9AF97;
+    height: 650px;
+    border-radius: 0 0 600px 600px;
+} */
+
+
+/* .BG_{
+    color: #C9AF97;
+} */
+
+/* .containerBG { */
+/* background-image: url(assets/background1.png); */
+/* background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+} */

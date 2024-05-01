@@ -1,0 +1,254 @@
+.navbar {
+    background-color: #C9AF97;
+    height: 60px;
+    margin-bottom: -3%;
+}
+
+.logoNavbar {
+    width: 70px;
+    height: 100px;
+    margin-left: 20px;
+    background-image: url(assets/antrekuy_logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.daftar {
+    margin-bottom: 10%;
+}
+
+.textDaftar {
+    color: #C9AF97;
+}
+
+.textMoreDaftar {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+.form3 {
+    margin-bottom: 8%;
+}
+
+.form4 {
+    margin-bottom: 2%;
+}
+
+.form4 a.pesan {
+    color: rgb(124, 122, 122);
+    text-decoration: none;
+    display: flex;
+    margin-top: -2%;
+}
+
+.pick-time {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8%;
+}
+
+.radius {
+    height: 45px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: #C9AF97;
+}
+
+.pick-time span {
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.pick-time span.minus {
+    cursor: pointer;
+}
+
+.pick-time span.plus {
+    cursor: pointer;
+}
+
+.pick-time span.number {
+    font-size: 28px;
+    /* border-right: 2px solid rgba(0, 0, 0, 0.2);
+    border-left: 2px solid rgba(0, 0, 0, 0.2); */
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+.form5 {
+    margin-bottom: 2%;
+}
+
+.form5 a.pesan {
+    color: rgb(124, 122, 122);
+    text-decoration: none;
+    display: flex;
+    margin-top: -2%;
+}
+
+.form6 {
+    margin-bottom: 2%;
+}
+
+.form7 {
+    margin-bottom: 2%;
+}
+
+.form8 {
+    margin-bottom: 2%;
+}
+
+.form9 {
+    margin-bottom: 2%;
+    margin-top: 8%;
+}
+
+.form10 {
+    margin-bottom: 2%;
+    margin-top: 8%;
+}
+
+.form-check {
+    margin-left: 8%;
+}
+
+/* .form-control {
+    outline: none;
+    border-style: none none solid none;
+    background-color: #FFFDF4;
+    width: 85%;
+} */
+
+.form-control-questOld {
+    outline: none;
+    border-style: none none solid none;
+    background-color: #FFFDF4;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    width: 85%;
+}
+
+.form-control-quest {
+    outline: none;
+    border-style: none none solid none;
+    background-color: #FFFDF4;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    width: 75%;
+}
+
+.space-Text-Check {
+    display: flex;
+}
+
+.button-masuk {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.button-batal {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.button-qr {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.btn-masuk {
+    background-color: #C9AF97;
+    border-radius: 4px;
+    border-style: none;
+    box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 50%;
+}
+
+.btn-masuk a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-batal {
+    background-color: white;
+    border-radius: 4px;
+    border-style: none;
+    box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 50%;
+}
+
+.btn-batal a {
+    color: #E04E5C;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-qr {
+    background-color: white;
+    border-radius: 4px;
+    border-style: none;
+    box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 50%;
+}
+
+.btn-qr a {
+    color: #C9AF97;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+/* Content for maps */
+
+.card.map-card {
+    width: 85%;
+}
+
+.card.map-card .table th {
+    width: 2rem;
+}
+
+.card.map-card .pt-3-5 {
+    padding-top: 1.25rem;
+}
+
+.card.map-card .card-body {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top: 20%;
+    overflow: hidden;
+    background-color: transparent;
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+    -webkit-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+
+.card.map-card .map-container {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.card.map-card .map-container iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.card.map-card .button .btn-floating {
+    margin-top: -1.5rem;
+}
