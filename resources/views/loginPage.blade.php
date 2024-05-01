@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login Page</title>
+    <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="Loginantrekuy.css">
+    <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
 </head>
 
 <body>
@@ -21,7 +22,7 @@
     </body>
 
     <section class="h-100 gradient-form">
-        <div class="container py-5 h-100">
+        <div class="container py-4 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-10">
                     <div class="text-black">
@@ -34,16 +35,18 @@
 
                                 <form>
                                     <div class="form1">
-                                        <label class="form-label" for="form2Example11">Username</label>
+                                        <img class="img-email" src="assets/Email.svg">&ensp;&ensp;<label class="form-label" for="form2Example11">Email</label>
                                         <input type="email" id="form2Example11" class="form-control" placeholder="" />
 
                                     </div>
 
+                                    <br>
+
                                     <div class="form2">
-                                        <label class="form-label" for="form2Example22">Password</label>
+                                        <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label class="form-label" for="form2Example22">Password</label>
                                         <input type="password" id="form2Example22" class="form-control" />
                                     </div>
-
+                                    
                                     <div class="textFP">
                                         <a class="textfp1" href="#!">Lupa password?</a>
                                     </div>
@@ -54,15 +57,10 @@
                                             in</button>
                                         <a class="text-muted" href="#!">Forgot password?</a>
                                     </div> -->
-
+                                    <br><br>
                                     <div class="button-masuk">
                                         <button type="button" class="btn-masuk btn-lg"><a
                                                 href="">Masuk</a></button>
-                                    </div>
-
-                                    <div class="button-daftar">
-                                        <button type="button" class="btn-daftar btn-lg"><a
-                                                href="">Daftar</a></button>
                                     </div>
 
                                 </form>

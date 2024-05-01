@@ -1,0 +1,120 @@
+body{
+    background-color: #FFFDF4;
+}
+
+.section-up{
+    background-image: url(assets/Image-background-home.png) ;
+    background-repeat:no-repeat;
+    background-size: contain;
+    background-size: 100% 47%;
+}
+
+.navbar{
+    background-color: #C9AF97;
+    height: 60px;
+    margin-bottom: -3%;
+    box-shadow:0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.289);
+}
+
+.logoNavbar{
+    width: 70px;
+    height: 100px;
+    margin-left: 20px;
+    background-image: url(assets/logo-nav.png) ;
+    background-repeat:no-repeat;
+    background-size: contain;
+}
+
+.container{
+    padding-top: 0rem;
+    padding-bottom: 2rem;
+}
+
+.container-home{
+    background-color: white;
+    border-radius: 12px;
+    border: 0.5px solid #C9AF97;
+    padding-bottom: 0%;
+    height: 69%;
+}
+
+.ket-antri{
+    padding-top: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.txt-numantrian{
+    color: #C9AF97;
+    font-weight: bold;
+    text-align: right;
+    padding-bottom: 0.5rem;
+}
+
+.nama-profile{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.3rem;
+}
+
+.nama-usaha{
+    color: white;
+}
+
+.button-antrian {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-antrian {
+    background-color: #C9AF97;
+    border-radius: 4px;
+    border-style: none;
+    box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 75%;
+    border-radius: 20px;
+}
+
+.btn-antrian a {
+    color: white;
+    text-decoration: none;
+}
+
+.button-pause {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-pause {
+    background-color: white;
+    border-radius: 4px;
+    border-style: none;
+    box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 75%;
+    border-radius: 20px;
+}
+
+.btn-pause a {
+    color: #d8604e;
+    text-decoration: none;
+}
+
+.container-antrian{
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+.container-daf-antrian{
+    background-color: white;
+    border-radius: 12px;
+    border: 0.5px solid #C9AF97;
+    padding-bottom: 0%;
+    height: 69%;
+}
+
+.daf-antrian{
+    padding-top: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+}

@@ -1,9 +1,9 @@
-body{
+body {
     background-color: #FFFDF4;
 }
 
 .navbar{
-    background-color: #C9AF97;
+    background-color: #E9FAEA;
     height: 60px;
     margin-bottom: -3%;
 }
@@ -17,17 +17,36 @@ body{
     background-size: contain;
 }
 
+.container{
+    padding-right: var(--bs-gutter-x, 1.75rem);
+    padding-left: var(--bs-gutter-x, 1.75rem);
+}
+
 .logoSection {
-    width: 250px;
-    height: 250px;
-    margin-bottom: 5%;
+    width: 80%;
+    height: 60%;
+    padding-bottom: 20%;
     margin-left: auto;
     margin-right: auto;
-    background-image: url(assets/Login-bro.svg) ;
+    background-image: url(assets/antrekuy_logo.png) ;
     background-repeat:no-repeat;
     background-size: contain;
 }
 
+.txt-header-welcome{
+    color: #282828;
+    text-align: center;
+    font-family: 'poppins', sans-serif;
+    font-size: 18px;
+}
+
+.txt-promote{
+    color: #858282;
+    text-align: center;
+    font-family: 'poppins', sans-serif;
+    font-size: 13px;
+    
+}
 
 .form1 {
     margin-bottom: 2%;
@@ -35,23 +54,6 @@ body{
 
 .form-control {
     border-style: none none solid none;
-    background-color: #FFFDF4;
-}
-
-.form-label{
-    color: #A9A9A9;
-}
-
-.img-email{
-    width: 18px;
-    height: 14px;
-    margin-bottom: 4px;
-}
-
-.img-password{
-    width: 16px;
-    height: 18px;
-    margin-bottom: 4px;
 }
 
 .textFP {
@@ -61,7 +63,7 @@ body{
 }
 
 .textFP a {
-    color: #C9AF97;
+    color: black;
 }
 
 .button-masuk {
@@ -80,5 +82,13 @@ body{
 
 .btn-masuk a {
     color: white;
+    text-decoration: none;
+}
+
+.btn-daftar {
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+    color: #C9AF97;
     text-decoration: none;
 }

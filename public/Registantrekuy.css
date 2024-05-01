@@ -1,5 +1,9 @@
+body{
+    background-color: #FFFDF4;
+}
+
 .navbar {
-    background-color: #E9FAEA;
+    background-color: #C9AF97;
     height: 60px;
     margin-bottom: -3%;
 }
@@ -8,10 +12,22 @@
     width: 70px;
     height: 100px;
     margin-left: 20px;
-    background-image: url(assets/antrekuy_logo.png);
+    background-image: url(assets/logo-nav.png);
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+.logoSection {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(assets/Login-bro.svg) ;
+    background-repeat:no-repeat;
+    background-size: contain;
+}
+
 
 .daftar {
     margin-bottom: 10%;
@@ -47,6 +63,35 @@
 
 .form-control {
     border-style: none none solid none;
+    background-color: #FFFDF4;
+}
+
+.form-label{
+    color: #A9A9A9;
+}
+
+.img-email{
+    width: 18px;
+    height: 14px;
+    margin-bottom: 4px;
+}
+
+.img-password{
+    width: 16px;
+    height: 18px;
+    margin-bottom: 4px;
+}
+
+.img-profile{
+    width: 18px;
+    height: 18px;
+    margin-bottom: 4px;
+}
+
+.img-business{
+    width: 16px;
+    height: 18px;
+    margin-bottom: 4px;
 }
 
 .button-masuk {
@@ -56,11 +101,12 @@
 }
 
 .btn-masuk {
-    background-color: #28A745;
+    background-color: #C9AF97;
     border-radius: 4px;
     border-style: none;
     box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
     width: 90%;
+    border-radius: 20px;
 }
 
 .btn-masuk a {
@@ -74,5 +120,5 @@
 }
 
 .textCheckAkun1{
-    color: black;
+    color: #C9AF97;
 }
