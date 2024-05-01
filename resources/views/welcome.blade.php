@@ -34,10 +34,10 @@
                                 <br><br><br><br><br>
 
                                 <div class="button-masuk">
-                                    <button type="button" class="btn-masuk btn-lg"><a href="">Daftar</a></button>
+                                    <button type="button" class="btn-masuk btn-lg"><a href="/Register">Daftar</a></button>
                                 </div>
 
-                                <a href="" class="btn-daftar">Masuk</a>
+                                <a href="/loginPage" class="btn-daftar">Masuk</a>
 
                             </div>
                         </div>

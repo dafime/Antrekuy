@@ -32,34 +32,50 @@
                                     <!-- <h4 class="mt-1 mb-5 pb-1">We are AntreKuy</h4> -->
                                 </div>
 
-                                <form>
+                                <form action="{{ url('/Register') }}" method="POST" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
                                     <div class="form3">
-                                        <img class="img-profile" src="assets/Profile.svg">&ensp;&ensp;<label class="form-label" for="form2Example11">Nama</label>
-                                        <input type="text" id="form2Example11" class="form-control" placeholder="" />
+                                        <img class="img-profile" src="assets/Profile.svg">&ensp;&ensp;<label class="form-label" for="name">Nama</label>
+                                        <input name="name" type="text" id="name" class="form-control" placeholder="" />
+                                        @error('name')
+                                                {{ $message }}
+                                            @enderror
                                     </div>
 
                                     <div class="form4">
-                                        <img class="img-business" src="assets/Business.svg">&ensp;&ensp;<label class="form-label" for="form2Example22">Nama Usaha</label>
-                                        <input type="text" id="form2Example22" class="form-control" />
+                                        <img class="img-business" src="assets/Business.svg">&ensp;&ensp;<label class="form-label" for="nama_usaha">Nama Usaha</label>
+                                        <input name="nama_usaha" type="text" id="nama_usaha" class="form-control" />
+                                        @error('nama_usaha')
+                                                {{ $message }}
+                                            @enderror
                                     </div>
 
                                     <div class="form5">
-                                        <img class="img-email" src="assets/Email.svg">&ensp;&ensp;<label class="form-label" for="form2Example22">Email</label>
-                                        <input type="email" id="form2Example22" class="form-control" />
+                                        <img class="img-email" src="assets/Email.svg">&ensp;&ensp;<label class="form-label" for="email">Email</label>
+                                        <input name="email" type="email" id="email" class="form-control" />
+                                        @error('email')
+                                                {{ $message }}
+                                            @enderror
                                     </div>
 
                                     <div class="form6">
-                                        <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label class="form-label" for="form2Example22">Password</label>
-                                        <input type="password" id="form2Example22" class="form-control" />
+                                        <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label class="form-label" for="password">Password</label>
+                                        <input name="password" type="password" id="password" class="form-control" required />
+                                        @error('password')
+                                                {{ $message }}
+                                            @enderror
                                     </div>
 
                                     <div class="form7">
-                                        <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label class="form-label" for="form2Example22">Konfirmasi Password</label>
-                                        <input type="password" id="form2Example22" class="form-control" />
+                                        <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label class="form-label" for="confirm_password">Konfirmasi Password</label>
+                                        <input name="password_confirmation" type="password" id="password" class="form-control" required />
+                                        @error('password')
+                                                {{ $message }}
+                                            @enderror
                                     </div>
 
                                     <div class="button-masuk">
-                                        <button type="button" class="btn-masuk btn-lg"><a href="">Daftar</a></button>
+                                        <input class="btn-masuk btn-lg" type="submit" value="Daftar">
                                     </div>
 
                                     <div class="textCheckAkun">

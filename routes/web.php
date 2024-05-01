@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/login', function () {
-    return view('loginPage');
-});
-
-Route::get('/register', function () {
-    return view('regisPage');
 });
 
 Route::get('/home', function () {
@@ -45,7 +38,6 @@ Route::get('/InfoAntrian', function () {
     return view('InfoAntrian');
 });
 
-
 Route::get('/CekAntrian', function () {
     return view('CekAntrian');
 });
@@ -58,10 +50,16 @@ Route::get('/EditAntrian', function () {
     return view('EditAntrian');
 });
 
-Route::get('/loginPage', function () {
-    return view('loginPage');
-});
+// Route::get('/loginPage', function () {
+//     return view('loginPage');
+// });
 
-Route::get('/Register', function (){
-    return view('RegisPage');
-});
+// Route::get('/Register', function (){
+//     return view('RegisPage');
+// });
+
+
+Route::get('/loginPage', [AuthController::class, 'signin']);
+Route::post('/loginPage', [AuthController::class, 'login']);
+Route::get('/Register', [AuthController::class, 'signup']);
+Route::post('/Register', [AuthController::class, 'addUser']);
