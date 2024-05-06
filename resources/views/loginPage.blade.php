@@ -33,18 +33,24 @@
                                     <!-- <h4 class="mt-1 mb-5 pb-1">We are AntreKuy</h4> -->
                                 </div>
 
-                                <form>
+                                <form action="{{ url('/loginPage') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="form1">
                                         <img class="img-email" src="assets/Email.svg">&ensp;&ensp;<label class="form-label" for="form2Example11">Email</label>
-                                        <input type="email" id="form2Example11" class="form-control" placeholder="" />
-
+                                        <input name="email" type="email" id="email" class="form-control" placeholder="" />
+                                        @error('email')
+                                                {{ $message }}
+                                            @enderror
                                     </div>
 
                                     <br>
 
                                     <div class="form2">
-                                        <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label class="form-label" for="form2Example22">Password</label>
-                                        <input type="password" id="form2Example22" class="form-control" />
+                                        <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label class="form-label" for="Password">Password</label>
+                                        <input name="password" type="password" id="password" class="form-control" />
+                                        @error('password')
+                                                {{ $message }}
+                                            @enderror
                                     </div>
                                     
                                     <div class="textFP">
@@ -59,8 +65,10 @@
                                     </div> -->
                                     <br><br>
                                     <div class="button-masuk">
-                                        <button type="button" class="btn-masuk btn-lg"><a
-                                                href="">Masuk</a></button>
+                                        <!-- <button type="button" class="btn-masuk btn-lg"><a
+                                                href="">Masuk</a></button> -->
+                                                <input class="btn-masuk btn btn-lg" type="submit"
+                                                 value="Masuk" />
                                     </div>
 
                                 </form>
