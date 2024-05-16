@@ -29,7 +29,10 @@
                             <div class="card-body p-md-5 mx-md-4">
                                 <div class="nama-profile" style="color: #303030;">
                                     Pak Kumis
-                                    <a href="" style="text-decoration: none; color:#303030;">Profile</a>
+                                    <div>
+                                        <a href="/editprofile" style="text-decoration: none; color:#303030; padding-right:7px;"><u>Profile</u></a>
+                                        <a href="/logout" style="text-decoration: none; color:#f25050;"><u>Keluar</u></a>
+                                    </div>
                                 </div>
 
                                 <h2 class="nama-usaha">
