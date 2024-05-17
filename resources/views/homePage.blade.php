@@ -28,21 +28,21 @@
                         <div class="row g-0">
                             <div class="card-body p-md-5 mx-md-4">
                                 <div class="nama-profile" style="color: #303030;">
-                                    Pak Kumis
+                                    {{Auth::user()->name}}
                                     <div>
                                         <a href="/editprofile/{{ Auth::user()->id }}" style="text-decoration: none; color:#303030; padding-right:7px;"><u>Profile</u></a>
                                         <a href="/logout" style="text-decoration: none; color:#f25050;"><u>Keluar</u></a>
                                     </div>
                                 </div>
 
-                                <h2 class="nama-usaha">
-                                    Bakso Pak Kumis
+                                <h2 class="nama-usaha" style="text-transform:uppercase;">
+                                    {{Auth::user()->nama_usaha}}
                                 </h2>
 
                                 <br>
 
                                 <div class="container-home">
-                                    <div class="container-home-header">ANTRI BAKSO PAK KUMIS</div>
+                                    <div class="container-home-header" style="text-transform:uppercase;">ANTRI {{Auth::user()->nama_usaha}}</div>
                                     <div class="ket-antri">
                                         <div class="txt-numantrian">No. Antrian: 017</div>
                                         <div>Status: Aktif</div>
