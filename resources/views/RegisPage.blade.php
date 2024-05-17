@@ -38,40 +38,40 @@
                                         <img class="img-profile" src="assets/Profile.svg">&ensp;&ensp;<label class="form-label" for="name">Nama</label>
                                         <input name="name" type="text" id="name" class="form-control" placeholder="" />
                                         @error('name')
-                                                {{ $message }}
-                                            @enderror
+                                        {{ $message }}
+                                        @enderror
                                     </div>
 
                                     <div class="form4">
                                         <img class="img-business" src="assets/Business.svg">&ensp;&ensp;<label class="form-label" for="nama_usaha">Nama Usaha</label>
                                         <input name="nama_usaha" type="text" id="nama_usaha" class="form-control" />
                                         @error('nama_usaha')
-                                                {{ $message }}
-                                            @enderror
+                                        {{ $message }}
+                                        @enderror
                                     </div>
 
                                     <div class="form5">
                                         <img class="img-email" src="assets/Email.svg">&ensp;&ensp;<label class="form-label" for="email">Email</label>
                                         <input name="email" type="email" id="email" class="form-control" />
                                         @error('email')
-                                                {{ $message }}
-                                            @enderror
+                                        {{ $message }}
+                                        @enderror
                                     </div>
 
                                     <div class="form6">
                                         <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label class="form-label" for="password">Password</label>
                                         <input name="password" type="password" id="password" class="form-control" required />
                                         @error('password')
-                                                {{ $message }}
-                                            @enderror
+                                        {{ $message }}
+                                        @enderror
                                     </div>
 
                                     <div class="form7">
                                         <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label class="form-label" for="confirm_password">Konfirmasi Password</label>
                                         <input name="password_confirmation" type="password" id="password" class="form-control" required />
                                         @error('password')
-                                                {{ $message }}
-                                            @enderror
+                                        {{ $message }}
+                                        @enderror
                                     </div>
 
                                     <div class="button-masuk">
@@ -79,7 +79,7 @@
                                     </div>
 
                                     <div class="textCheckAkun">
-                                        <a class="textCheckAkun1" href="#!">Sudah punya akun?</a>
+                                        <a class="textCheckAkun1" href="/loginPage">Sudah punya akun?</a>
                                     </div>
 
                                 </form>

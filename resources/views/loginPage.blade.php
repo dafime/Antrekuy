@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="Loginantrekuy.css">
     <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
 </head>
@@ -22,6 +21,11 @@
     </body>
 
     <section class="h-100 gradient-form">
+        @if(session()->has('login_failed'))
+        <div class="alert alert-danger">
+            {{ session()->get('login_failed') }}
+        </div>
+        @endif
         <div class="container py-4 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-10">
@@ -39,8 +43,8 @@
                                         <img class="img-email" src="assets/Email.svg">&ensp;&ensp;<label class="form-label" for="form2Example11">Email</label>
                                         <input name="email" type="email" id="email" class="form-control" placeholder="" />
                                         @error('email')
-                                                {{ $message }}
-                                            @enderror
+                                        {{ $message }}
+                                        @enderror
                                     </div>
 
                                     <br>
@@ -49,10 +53,10 @@
                                         <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label class="form-label" for="Password">Password</label>
                                         <input name="password" type="password" id="password" class="form-control" />
                                         @error('password')
-                                                {{ $message }}
-                                            @enderror
+                                        {{ $message }}
+                                        @enderror
                                     </div>
-                                    
+
                                     <div class="textFP">
                                         <a class="textfp1" href="#!">Lupa password?</a>
                                     </div>
@@ -67,8 +71,7 @@
                                     <div class="button-masuk">
                                         <!-- <button type="button" class="btn-masuk btn-lg"><a
                                                 href="">Masuk</a></button> -->
-                                                <input class="btn-masuk btn btn-lg" type="submit"
-                                                 value="Masuk" />
+                                        <input class="btn-masuk btn btn-lg" type="submit" value="Masuk" />
                                     </div>
 
                                 </form>

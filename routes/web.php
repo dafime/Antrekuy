@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,9 +21,9 @@ Route::get('/', function () {
 
 Route::get('/home', [AuthController::class, 'home']);
 
-Route::get('/editprofile', function () {
-    return view('editProfile');
-});
+// Route::get('/editprofile', function () {
+//     return view('editProfile');
+// });
 
 Route::get('/daftarantrian', function () {
     return view('daftarAntrian');
@@ -56,9 +57,14 @@ Route::get('/EditAntrian', function () {
 //     return view('RegisPage');
 // });
 
-
+//authentication user
 Route::get('/loginPage', [AuthController::class, 'signin']);
 Route::post('/loginPage', [AuthController::class, 'login']);
 Route::get('/Register', [AuthController::class, 'signup']);
 Route::post('/Register', [AuthController::class, 'addUser']);
 Route::get('/logout', [AuthController::class, 'logout']);
+
+
+//user profile
+Route::get('/editprofile/{id}', [UserController::class, 'profile']);
+Route::put('/updateProfile/{id}', [UserController::class, 'updateProfile']);

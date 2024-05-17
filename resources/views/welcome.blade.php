@@ -29,7 +29,7 @@
                                 <h2 class="txt-header-welcome">Let's get started</h2>
                                 <br>
                                 <div class="txt-promote">
-                                    Antrekuy diciptakan untuk orang yang peduli akan waktu. Mari pakai antrekuy supaya lebih flexible, mudah dan efisien dala mengantri.
+                                    Antrekuy diciptakan untuk orang yang peduli akan waktu. Mari pakai antrekuy supaya lebih flexible, mudah dan efisien dalam mengantri.
                                 </div>
                                 <br><br><br><br><br>
 

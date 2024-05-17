@@ -30,7 +30,7 @@
                                 <div class="nama-profile" style="color: #303030;">
                                     Pak Kumis
                                     <div>
-                                        <a href="/editprofile" style="text-decoration: none; color:#303030; padding-right:7px;"><u>Profile</u></a>
+                                        <a href="/editprofile/{{ Auth::user()->id }}" style="text-decoration: none; color:#303030; padding-right:7px;"><u>Profile</u></a>
                                         <a href="/logout" style="text-decoration: none; color:#f25050;"><u>Keluar</u></a>
                                     </div>
                                 </div>

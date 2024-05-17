@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Edit Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="EditProfileantrekuy.css">
+    <link rel="stylesheet" href="{{asset('EditProfileantrekuy.css')}}">
     <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
 </head>
 
@@ -21,6 +21,11 @@
     </body>
 
     <section class="h-100 gradient-form">
+        @if(session()->has('message'))
+        <div class="alert alert-success">
+            {{ session()->get('message') }}
+        </div>
+        @endif
         <div class="container py-4 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-10">
@@ -32,28 +37,39 @@
                                 <div style="color:#A9A9A9;">Ubah Profil Pemilik Usaha</div>
                                 <br><br><br>
 
-                                <form>
+                                <form action="/updateProfile/{{$user->id}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    {{method_field('PUT')}}
                                     <div class="form3">
-                                        <img class="img-profile" src="assets/Profile.svg">&ensp;&ensp;<label class="form-label" for="form2Example11">Nama</label>
-                                        <input type="email" id="form2Example11" class="form-control" placeholder="" />
+                                        <img class="img-profile" src="{{asset('assets/Profile.svg')}}">&ensp;&ensp;<label class="form-label" for="name">Nama</label>
+                                        <input name="name" type="text" id="name" class="form-control" placeholder="" />
+                                        @error('name')
+                                        {{ $message }}
+                                        @enderror
                                     </div><br>
 
                                     <div class="form4">
-                                        <img class="img-business" src="assets/Business.svg">&ensp;&ensp;<label class="form-label" for="form2Example22">Nama Usaha</label>
-                                        <input type="text" id="form2Example22" class="form-control" />
+                                        <img class="img-business" src="{{asset('assets/Business.svg')}}">&ensp;&ensp;<label class="form-label" for="nama_usaha">Nama Usaha</label>
+                                        <input name="nama_usaha" type="text" id="nama_usaha" class="form-control" />
+                                        @error('nama_usaha')
+                                        {{ $message }}
+                                        @enderror
                                     </div><br>
 
                                     <div class="form5">
-                                        <img class="img-email" src="assets/Email.svg">&ensp;&ensp;<label class="form-label" for="form2Example22">Email</label>
-                                        <input type="email" id="form2Example22" class="form-control" />
+                                        <img class="img-email" src="{{asset('assets/Email.svg')}}">&ensp;&ensp;<label class="form-label" for="email">Email</label>
+                                        <input name="email" type="email" id="email" class="form-control" />
+                                        @error('email')
+                                        {{ $message }}
+                                        @enderror
                                     </div><br><br>
 
                                     <div class="button-masuk">
-                                        <button type="button" class="btn-masuk btn-lg"><a href="">Simpan</a></button>
+                                        <input class="btn-masuk btn-lg" type="submit" value="Simpan"></input>
                                     </div><br>
 
                                     <div class="button-batal">
-                                        <button type="button" class="btn-batal btn-lg"><a href="">Batal</a></button>
+                                        <button type="button" class="btn-batal btn-lg"><a href="/home">Batal</a></button>
                                     </div>
 
                                 </form>
