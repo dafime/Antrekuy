@@ -56,14 +56,6 @@
                                         @enderror
                                     </div><br>
 
-                                    <div class="form5">
-                                        <img class="img-email" src="{{asset('assets/Email.svg')}}">&ensp;&ensp;<label class="form-label" for="email">Email</label>
-                                        <input name="email" type="email" id="email" class="form-control" />
-                                        @error('email')
-                                        {{ $message }}
-                                        @enderror
-                                    </div><br><br>
-
                                     <div class="button-masuk">
                                         <input class="btn-masuk btn-lg" type="submit" value="Simpan"></input>
                                     </div><br>

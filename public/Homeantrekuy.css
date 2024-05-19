@@ -44,6 +44,47 @@ body{
     font-weight: bold;
 }
 
+.popup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70%;
+}
+
+.card-popup-title{
+    display: flex;
+    justify-content: center;
+}
+
+.button-masuk-popup {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.form-popup{
+    margin-top: 10%;
+}
+
+.btn-masuk-popup {
+    background-color: #C9AF97;
+    color: white;
+    border-radius: 4px;
+    border-style: none;
+    box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 90%;
+    border-radius: 20px;
+}
+
+.card-popup{
+    /* backdrop-filter: blur(14px); */
+    color: #865f5f;
+    border-style: none;
+    box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    /* width: 90%; */
+    border-radius: 20px;
+}
+
 .ket-antri{
     padding-top: 14px;
     padding-left: 20px;

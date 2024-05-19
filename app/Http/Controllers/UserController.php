@@ -24,10 +24,21 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->name;
         $user->nama_usaha = $request->nama_usaha;
-        $user->email = $request->email;
 
         $user->date_joined = Carbon::now()->setTimezone('Asia/Jakarta');
         $user->save();
         return redirect()->back()->with('message',"Berhasil disimpan");
+    }
+
+    public function updateProfileNamaUsaha(Request $request, $id){
+        if(is_null($request->nama_usaha)){
+            return redirect()->back();
+        }
+        $user = User::find($id);
+        $user->nama_usaha = $request->nama_usaha;
+
+        $user->date_joined = Carbon::now()->setTimezone('Asia/Jakarta');
+        $user->save();
+        return redirect()->back();
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -68,3 +69,12 @@ Route::get('/logout', [AuthController::class, 'logout']);
 //user profile
 Route::get('/editprofile/{id}', [UserController::class, 'profile']);
 Route::put('/updateProfile/{id}', [UserController::class, 'updateProfile']);
+Route::put('/updateProfileNamaUsaha/{id}', [UserController::class, 'updateProfileNamaUsaha']);
+
+Route::get('/auth/redirect', [GoogleController::class, 'redirect']);
+Route::get('auth/google/call-back', [GoogleController::class, 'callback']);
+
+
+// Route::get('/homePage', function () {
+//     return view('homePage');
+// })->middleware(['auth', 'verified'])->name('homePage');
