@@ -21,17 +21,17 @@
     </body>
 
     <section class="h-100 gradient-form">
-        @if(session()->has('message'))
-        <div class="alert alert-success">
-            {{ session()->get('message') }}
-        </div>
-        @endif
         <div class="container py-4 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-10">
                     <div class="text-black">
                         <div class="row g-0">
                             <div class="card-body p-md-5 mx-md-4">
+                                @if(session()->has('message'))
+                                <div class="alert alert-success">
+                                    {{ session()->get('message') }}
+                                </div>
+                                @endif
 
                                 <div style="color: #C9AF97; font-weight:bold; font-size:30px;">Edit Profile</div>
                                 <div style="color:#A9A9A9;">Ubah Profil Pemilik Usaha</div>

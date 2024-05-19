@@ -18,7 +18,7 @@ class UserController extends Controller
     }
 
     public function updateProfile(Request $request, $id){
-        if(isNull($request->name)){
+        if(is_null($request->name)){
             return redirect()->back();
         }
         $user = User::find($id);
