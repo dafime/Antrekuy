@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="Loginantrekuy.css">
     <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
 </head>
@@ -21,10 +22,10 @@
     </body>
 
     <section class="h-100 gradient-form">
-        @if(session()->has('login_failed'))
-        <div class="alert alert-danger">
-            {{ session()->get('login_failed') }}
-        </div>
+        @if (session()->has('login_failed'))
+            <div class="alert alert-danger">
+                {{ session()->get('login_failed') }}
+            </div>
         @endif
         <div class="container py-4 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -40,20 +41,23 @@
                                 <form action="{{ url('/loginPage') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form1">
-                                        <img class="img-email" src="assets/Email.svg">&ensp;&ensp;<label class="form-label" for="form2Example11">Email</label>
-                                        <input name="email" type="email" id="email" class="form-control" placeholder="" />
+                                        <img class="img-email" src="assets/Email.svg">&ensp;&ensp;<label
+                                            class="form-label" for="form2Example11">Email</label>
+                                        <input name="email" type="email" id="email" class="form-control"
+                                            placeholder="" />
                                         @error('email')
-                                        {{ $message }}
+                                            {{ $message }}
                                         @enderror
                                     </div>
 
                                     <br>
 
                                     <div class="form2">
-                                        <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label class="form-label" for="Password">Password</label>
+                                        <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label
+                                            class="form-label" for="Password">Password</label>
                                         <input name="password" type="password" id="password" class="form-control" />
                                         @error('password')
-                                        {{ $message }}
+                                            {{ $message }}
                                         @enderror
                                     </div>
 
@@ -74,12 +78,21 @@
                                         <input class="btn-masuk btn btn-lg" type="submit" value="Masuk" />
                                     </div>
 
-                                    <div class="row mb-3">
+                                    <div class="button-google">
+                                        <!-- <button type="button" class="btn-masuk btn-lg"><a
+                                                href="">Masuk</a></button> -->
+                                        <button class="btn-google btn btn-lg" >
+                                            <img class="img-google" src="assets/img-google-.png">
+                                            <a href="auth/redirect">Login With Google </a></button>
+
+                                    </div>
+
+                                    {{-- <div class="row mb-3">
                                         <div class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                             <a href="auth/redirect" class="btn btn-google btn-user btn-block" >
                                                 <i class="fab fa-google fa-fw"></i> Login with Google
                                             </a>
-                                    </div>
+                                    </div> --}}
 
                                 </form>
 

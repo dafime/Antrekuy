@@ -54,6 +54,13 @@ body{
     margin-bottom: 4px;
 }
 
+.img-google{
+    width: 25px;
+    height: 25px;
+    margin-bottom: 4px;
+    margin-right: 13%;
+}
+
 .textFP {
     display: flex;
     justify-content: right;
@@ -83,3 +90,25 @@ body{
     color: white;
     text-decoration: none;
 }
+
+.button-google {
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+}
+
+.btn-google {
+    background-color: white;
+    border-radius: 4px;
+    border-style: none;
+    box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 90%;
+    border-radius: 20px;
+}
+
+.btn-google a {
+    color: black;
+    text-decoration: none;
+    margin-right: 17% ;
+}
+

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="Registantrekuy.css">
     <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
 </head>
@@ -35,42 +36,50 @@
                                 <form action="{{ url('/Register') }}" method="POST" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <div class="form3">
-                                        <img class="img-profile" src="assets/Profile.svg">&ensp;&ensp;<label class="form-label" for="name">Nama</label>
-                                        <input name="name" type="text" id="name" class="form-control" placeholder="" />
+                                        <img class="img-profile" src="assets/Profile.svg">&ensp;&ensp;<label
+                                            class="form-label" for="name">Nama</label>
+                                        <input name="name" type="text" id="name" class="form-control"
+                                            placeholder="" />
                                         @error('name')
-                                        {{ $message }}
+                                            {{ $message }}
                                         @enderror
                                     </div>
 
                                     <div class="form4">
-                                        <img class="img-business" src="assets/Business.svg">&ensp;&ensp;<label class="form-label" for="nama_usaha">Nama Usaha</label>
+                                        <img class="img-business" src="assets/Business.svg">&ensp;&ensp;<label
+                                            class="form-label" for="nama_usaha">Nama Usaha</label>
                                         <input name="nama_usaha" type="text" id="nama_usaha" class="form-control" />
                                         @error('nama_usaha')
-                                        {{ $message }}
+                                            {{ $message }}
                                         @enderror
                                     </div>
 
                                     <div class="form5">
-                                        <img class="img-email" src="assets/Email.svg">&ensp;&ensp;<label class="form-label" for="email">Email</label>
+                                        <img class="img-email" src="assets/Email.svg">&ensp;&ensp;<label
+                                            class="form-label" for="email">Email</label>
                                         <input name="email" type="email" id="email" class="form-control" />
                                         @error('email')
-                                        {{ $message }}
+                                            {{ $message }}
                                         @enderror
                                     </div>
 
                                     <div class="form6">
-                                        <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label class="form-label" for="password">Password</label>
-                                        <input name="password" type="password" id="password" class="form-control" required />
+                                        <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label
+                                            class="form-label" for="password">Password</label>
+                                        <input name="password" type="password" id="password" class="form-control"
+                                            required />
                                         @error('password')
-                                        {{ $message }}
+                                            {{ $message }}
                                         @enderror
                                     </div>
 
                                     <div class="form7">
-                                        <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label class="form-label" for="confirm_password">Konfirmasi Password</label>
-                                        <input name="password_confirmation" type="password" id="password" class="form-control" required />
+                                        <img class="img-password" src="assets/Password.svg">&ensp;&ensp;<label
+                                            class="form-label" for="confirm_password">Konfirmasi Password</label>
+                                        <input name="password_confirmation" type="password" id="password"
+                                            class="form-control" required />
                                         @error('password')
-                                        {{ $message }}
+                                            {{ $message }}
                                         @enderror
                                     </div>
 
@@ -78,14 +87,27 @@
                                         <input class="btn-masuk btn-lg" type="submit" value="Daftar">
                                     </div>
 
+                                    <div class="button-google">
+                                        <!-- <button type="button" class="btn-masuk btn-lg"><a
+                                                href="">Masuk</a></button> -->
+                                        <button class="btn-google btn btn-lg">
+                                            <img class="img-google" src="assets/img-google-.png">
+                                            <a href="auth/redirect">Login With Google </a></button>
+
+                                    </div>
+
                                     <div class="textCheckAkun">
                                         <a class="textCheckAkun1" href="/loginPage">Sudah punya akun?</a>
                                     </div>
 
+                                    <br>
+                                    <br>
+                                    <br>
                                 </form>
 
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
