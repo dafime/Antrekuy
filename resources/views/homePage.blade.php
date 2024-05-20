@@ -86,7 +86,7 @@
             </div>
             <br><br><br><br>
             <div class="button-antrian">
-                <button type="button" class="btn-antrian btn-lg"><a href="">Lihat Antrian</a></button>
+                <button type="button" class="btn-antrian btn-lg"><a href="/setupAntrian/{{Auth::user()->id}}">Lihat Antrian</a></button>
             </div>
 
             <br>

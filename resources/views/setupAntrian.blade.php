@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Setup Antrian Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="setupAntrian.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('setupAntrian.css')}}">
+    <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
 </head>
 
 <body>
@@ -33,12 +33,13 @@
                                     <a class="textMoreDaftar">Atur detail informasi antrian</a>
                                 </div>
 
-                                <form>
+                                <form action="/addAntrian/{{$user->id}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    {{method_field('PUT')}}
                                     <div class="form3">
                                         <label class="form-label" for="form2Example11">Nama Antrian</label>
                                         <div class="space-Text-Check">
-                                            <input type="" id="form2Example11" class="form-control-questOld"
-                                                placeholder="" />
+                                            <input name="nama_antrian" type="text" id="nama_antrian" class="form-control-questOld" placeholder="" />
                                         </div>
                                     </div>
 
@@ -51,9 +52,9 @@
 
                                     <div class="pick-time">
                                         <div class="radius">
-                                            <span class="minus">-</span>
-                                            <span class="number">1</span>
-                                            <span class="plus">+</span>
+                                            <!-- <span class="minus">-</span> -->
+                                            <input name="alokasi_waktu" class="number" type="number" id="alokasi_waktu" value="1" min="1">
+                                            <!-- <span class="plus">+</span> -->
                                         </div>
                                     </div>
 
@@ -67,36 +68,33 @@
                                     <div class="form6">
                                         <label class="form-label">Pertanyaan 1</label>
                                         <div class="space-Text-Check">
-                                            <input type="" class="form-control-quest" />
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="flexCheckDefault">
+                                            <input name="pertanyaan1" type="text" id="pertanyaan1" class="form-control-quest" />
+                                            <!-- <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                                 <label class="form-check-label" for="flexCheckDefault"></label>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
 
                                     <div class="form7">
                                         <label class="form-label">Pertanyaan 2</label>
                                         <div class="space-Text-Check">
-                                            <input type="" class="form-control-quest" />
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="flexCheckDefault">
+                                            <input name="pertanyaan2" type="text" id="pertanyaan2" class="form-control-quest" />
+                                            <!-- <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                                 <label class="form-check-label" for="flexCheckDefault"></label>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
 
                                     <div class="form8">
                                         <label class="form-label">Pertanyaan 3</label>
                                         <div class="space-Text-Check">
-                                            <input type="" class="form-control-quest" />
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="flexCheckDefault">
+                                            <input name="pertanyaan3" type="text" id="pertanyaan3" class="form-control-quest" />
+                                            <!-- <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                                 <label class="form-check-label" for="flexCheckDefault"></label>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
 
@@ -106,25 +104,20 @@
                                     </div>
 
                                     <div class="card map-card">
-                                        <div id="map-container-google-1" class="z-depth-1-half map-container"
-                                            style="height: 500px;">
-                                            <iframe
-                                                src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                                frameborder="0" style="border:0" allowfullscreen></iframe>
+                                        <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px;">
+                                            <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
                                         </div>
                                     </div>
 
                                     <div class="form10">
                                         <label class="form-label" for="form2Example22">Lokasi</label>
                                         <div class="space-Text-Check">
-                                            <input type="" id="form2Example11" class="form-control-questOld"
-                                                placeholder="" />
+                                            <input name="lokasi" type="text" id="lokasi" class="form-control-questOld" placeholder="" />
                                         </div>
                                     </div>
 
                                     <div class="button-masuk">
-                                        <button type="button" class="btn-masuk btn-lg"><a href="">Simpan &
-                                                Generate QR Code</a></button>
+                                        <input type="submit" class="btn-masuk btn-lg" value="Simpan & Generate QR Code">
                                     </div>
 
                                 </form>
@@ -137,7 +130,7 @@
         </div>
     </section>
 
-    <script>
+    <!-- <script>
         const plus = document.querySelector(".plus"),
             minus = document.querySelector(".minus"),
             number = document.querySelector(".number");
@@ -159,7 +152,7 @@
                 number.innerText = a;
             }
         });
-    </script>
+    </script> -->
 </body>
 
 </html>

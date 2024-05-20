@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AntrianController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
@@ -42,9 +43,9 @@ Route::get('/CekAntrian', function () {
     return view('CekAntrian');
 });
 
-Route::get('/setupAntrian', function () {
-    return view('setupAntrian');
-});
+// Route::get('/setupAntrian', function () {
+//     return view('setupAntrian');
+// });
 
 Route::get('/EditAntrian', function () {
     return view('EditAntrian');
@@ -73,6 +74,10 @@ Route::put('/updateProfileNamaUsaha/{id}', [UserController::class, 'updateProfil
 
 Route::get('/auth/redirect', [GoogleController::class, 'redirect']);
 Route::get('auth/google/call-back', [GoogleController::class, 'callback']);
+
+//antrian
+Route::get('/setupAntrian/{id}', [AntrianController::class, 'antrian']);
+Route::put('/addAntrian/{id}', [AntrianController::class, 'addAntrian']);
 
 
 // Route::get('/homePage', function () {

@@ -62,7 +62,19 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($credential)) {
-            return redirect('/home')->with('login_failed', 'Wrong Email/Password. Please Check Again');
+            DB::table('antrian_usahas')->insert([
+                'user_id' => Auth::user()->id,
+                // 'namaantrian' => 'mantap',
+                // 'antrianaktif' => 1,
+                // 'pertanyaan1' => 'antrian_aktif',
+                // 'pertanyaan2' => 'antrian_aktif',
+                // 'pertanyaan3' => 'antrian_aktif',
+                // 'lokasiusaha' => 'antrian_aktif',
+                // 'qrcode' => 'antrian_aktif',
+                // 'time' => 1,
+                // 'noantriansekarang' => 2
+            ]);
+            return redirect('/home');
         }
     }
 
