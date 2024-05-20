@@ -10,15 +10,21 @@ use Illuminate\Support\Facades\DB;
 
 class AntrianController extends Controller
 {
-    public function antrian($id){
+    public function antrian($id)
+    {
         $user = User::find($id);
-        return view('setupAntrian', compact('user'));
+        if (is_null(DB::table('antrian_usahas')->join('users', 'users.id', '=', 'antrian_usahas.user_id')->where('antrian_usahas.user_id', $id)->value('antrian_usahas.namaantrian'))) {
+            return view('setupAntrian', compact('user'));
+        }else{
+            return redirect('/daftarantrian');
+        }
     }
 
-    public function addAntrian(Request $request, $id){
-      
+    public function addAntrian(Request $request, $id)
+    {
 
-        $antrian_usaha_id = DB::table('antrian_usahas')->join('users','users.id','=','antrian_usahas.user_id')->where('antrian_usahas.user_id',$id)->value('antrian_usahas.id');
+
+        $antrian_usaha_id = DB::table('antrian_usahas')->join('users', 'users.id', '=', 'antrian_usahas.user_id')->where('antrian_usahas.user_id', $id)->value('antrian_usahas.id');
         $AntrianUsaha = AntrianUsaha::find($antrian_usaha_id);
         $AntrianUsaha->namaantrian = $request->nama_antrian;
         $AntrianUsaha->time = $request->alokasi_waktu;
