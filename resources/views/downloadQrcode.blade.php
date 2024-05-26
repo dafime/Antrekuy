@@ -33,7 +33,7 @@
 
                                 <div class="container-home">
                                     <div class="ket-antri">
-                                        <img src="/assets/qrcode.png" alt="">
+                                        {{ \SimpleSoftwareIO\QrCode\Facades\QrCode::generate('http://127.0.0.1:8000/CekAntrian/'.Auth::user()->id) }}
                                         <h2 class="txt-numantrian">SCAN UNTUK ANTRI</h2>
                                         <br>
                                         <img class="logo-antrekuy" src="/assets/antrekuy_logodark.png" alt="">

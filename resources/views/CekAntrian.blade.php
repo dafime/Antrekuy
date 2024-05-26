@@ -8,7 +8,7 @@
     <title>Cek Antrian</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="CekAntrian.css">
+    <link rel="stylesheet" href="{{asset('CekAntrian.css')}}">
     <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
 </head>
 
@@ -41,7 +41,7 @@
                                         <h3 class="txt-numantrian">No. Antrian Saat Ini: 017</h3>
                                         <div>Est. Waktu Tunggu: 18 Menit</div>
                                         <br>
-                                        <div>Anda berada di lokasi Bakso Pak Kumis</div>
+                                        <div>Anda berada di lokasi {{$user->nama_usaha}}</div>
                                     </div>
                                 </div>
 

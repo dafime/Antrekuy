@@ -35,13 +35,13 @@ Route::get('/downloadQR', function () {
     return view('downloadQrcode');
 });
 
-Route::get('/InfoAntrian', function () {
-    return view('InfoAntrian');
-});
+// Route::get('/InfoAntrian', function () {
+//     return view('InfoAntrian');
+// });
 
 Route::get('/CekAntrian', function () {
-    return view('CekAntrian');
-});
+     return view('CekAntrian');
+ });
 
 // Route::get('/setupAntrian', function () {
 //     return view('setupAntrian');
@@ -78,6 +78,12 @@ Route::get('auth/google/call-back', [GoogleController::class, 'callback']);
 //antrian
 Route::get('/setupAntrian/{id}', [AntrianController::class, 'antrian']);
 Route::put('/addAntrian/{id}', [AntrianController::class, 'addAntrian']);
+
+
+//route habis scan
+// Route::get('/InfoAntrian', 'YourController@method')->name('Info.Antrian');
+Route::get('/CekAntrian/{id}', [AntrianController::class, 'CekAntrian']);
+
 
 
 // Route::get('/homePage', function () {

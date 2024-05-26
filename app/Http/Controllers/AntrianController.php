@@ -54,4 +54,10 @@ class AntrianController extends Controller
 
         return redirect('/downloadQR');
     }
+
+    public function CekAntrian($id){
+        $user = User::find($id);
+            return view('CekAntrian', compact('user'));
+    }
+
 }
