@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="DaftarAntrianantrekuy.css">
+    <link rel="stylesheet" href="{{asset('DaftarAntrianantrekuy.css')}}">
     <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
 </head>
 
@@ -71,21 +71,20 @@
         <div class="container-antrian">
             <h3 style="color:#C9AF97;">Daftar Antrian</h3>
             <br>
-            <?php $i = 1;
-            while ($i < 6) {  ?>
-                <div class="container-daf-antrian">
-                    <div class="daf-antrian">
-                        <h3 class="txt-numantrian" style="color: black;">No. Antrian: <?php echo $i ?></h3>
-                        <div>28 Maret 2024, 11:25:01 AM</div>
-                        <div>Nama: Timoti</div>
-                        <div>Jumlah Antrian Sekarang: 025</div>
-                        <br>
-                        <a href="" style="color: #d8604e;">Hapus dari Antrian</a>
-                    </div>
+           
+            @foreach ($listantrian as $items)
+            <div class="container-daf-antrian">
+                <div class="daf-antrian">
+                    <h3 class="txt-numantrian" style="color: black;">No. Antrian: <?php echo $items->id ?></h3>
+                    <div><?= $items->CreatedDateTime ?></div>
+                    <div>Nama: Timoti</div>
+                    <div>Jumlah Antrian Sekarang: 025</div>
+                    <br>
+                    <a href="" style="color: #d8604e;">Hapus dari Antrian</a>
                 </div>
-                <br>
-            <?php $i++;
-            } ?>
+            </div>
+            <br>
+            @endforeach
         </div>
     </section>
 

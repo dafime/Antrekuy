@@ -44,6 +44,11 @@ body{
     font-weight: bold;
 }
 
+.QRCode{
+    height: 100px;
+    width: 100px;
+}
+
 .ket-antri{
     text-align: center;
 }

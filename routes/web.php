@@ -83,6 +83,10 @@ Route::put('/addAntrian/{id}', [AntrianController::class, 'addAntrian']);
 //route habis scan
 // Route::get('/InfoAntrian', 'YourController@method')->name('Info.Antrian');
 Route::get('/CekAntrian/{id}', [AntrianController::class, 'CekAntrian']);
+Route::post('/CekAntrian/{id}', [AntrianController::class, 'addPesanan']);
+
+Route::get('/InfoAntrian/{id}/{pesanan_id}', [AntrianController::class, 'InfoAntrian']);
+Route::get('/daftarantrian/{id}', [AntrianController::class, 'daftarAntrian']);
 
 
 

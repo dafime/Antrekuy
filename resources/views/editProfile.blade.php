@@ -61,7 +61,7 @@
                                     </div><br>
 
                                     <div class="button-batal">
-                                        <button type="button" class="btn-batal btn-lg"><a href="/home">Batal</a></button>
+                                        <button type="button" class="btn-batal btn-lg"><a href="/home">Kembali</a></button>
                                     </div>
 
                                 </form>

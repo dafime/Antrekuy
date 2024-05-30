@@ -8,7 +8,7 @@
     <title>Info Antrian</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="InfoAntrian.css">
+    <link rel="stylesheet" href="{{asset('InfoAntrian.css')}}">
     <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
 </head>
 
@@ -30,7 +30,7 @@
                             <div class="card-body p-md-5 mx-md-4">
                                 <div class="nama-profile" style="color: #303030;">
                                     <h2 class="nama-usaha">
-                                        Antri Bakso Pak Kumis
+                                        Antri {{$antrian_usaha->namaantrian}}
                                     </h2>
                                 </div>
 
@@ -38,8 +38,8 @@
 
                                 <div class="container-home">
                                     <div class="ket-antri">
-                                        <h3 class="txt-numantrian">No. Antrian Anda: 017</h3>
-                                        <div>28 Maret 2024, 11:25:01 AM</div>
+                                        <h3 class="txt-numantrian">No. Antrian Anda: {{$pesanan->id}}</h3>
+                                        <div>{{$pesanan->CreatedDateTime}}</div>
                                         <div>Est. Waktu Tunggu: 20 Menit</div>
                                         <div>No Antrian Saat ini: 017</div>
                                     </div>
@@ -57,14 +57,26 @@
                 <div class="form-nama">
                     <label class="form-label" for="">Nama</label>
                     <div class="space-Text-Check">
-                        <input type="" id="" class="form-control-nama" placeholder="" />
+                        {{$pesanan->nama_pembeli}}
                     </div>
                 </div>
 
                 <div class="form-pesanan">
-                    <label class="form-label" for="">Pesanan</label>
+                    <label class="form-label" for="">{{$antrian_usaha->pertanyaan1}}</label>
                     <div class="space-Text-Check">
-                        <input type="" id="" class="form-control-nama" placeholder="" />
+                        {{$pesanan->Jawaban1}}
+                    </div>
+                </div>
+                <div class="form-pesanan">
+                    <label class="form-label" for="">{{$antrian_usaha->pertanyaan2}}</label>
+                    <div class="space-Text-Check">
+                        {{$pesanan->Jawaban2}}
+                    </div>
+                </div>
+                <div class="form-pesanan">
+                    <label class="form-label" for="">{{$antrian_usaha->pertanyaan3}}</label>
+                    <div class="space-Text-Check">
+                        {{$pesanan->Jawaban3}}
                     </div>
                 </div>
             </div>

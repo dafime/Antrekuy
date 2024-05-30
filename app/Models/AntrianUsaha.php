@@ -15,4 +15,8 @@ class AntrianUsaha extends Model
         return $this->hasMany(User::class);
     }
 
+    public function pesanan(){
+        return $this->belongsToMany(Pesanan::class);
+    }
+
 }

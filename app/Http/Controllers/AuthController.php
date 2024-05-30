@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use mysqli;
 
 class AuthController extends Controller
 {
@@ -15,7 +16,9 @@ class AuthController extends Controller
     public function home(User $user)
     {
         if (! empty(auth()->user()->id)) {
-            return view('homePage');
+            $pesanan = DB::select('select max(id) as noantrian from pesanans where SudahDilayani = true');
+            $antrian_usaha = DB::select('select antrianaktif from antrian_usahas');
+            return view('homePage', compact('pesanan', 'antrian_usaha'));
         }
         return redirect('/');
     }

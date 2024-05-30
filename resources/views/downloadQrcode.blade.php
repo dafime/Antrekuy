@@ -33,7 +33,8 @@
 
                                 <div class="container-home">
                                     <div class="ket-antri">
-                                        {{ \SimpleSoftwareIO\QrCode\Facades\QrCode::generate('http://127.0.0.1:8000/CekAntrian/'.Auth::user()->id) }}
+                                        <br><br>
+                                        {{ \SimpleSoftwareIO\QrCode\Facades\QrCode::size(250)->generate('http://127.0.0.1:8000/CekAntrian/'.Auth::user()->id) }}
                                         <h2 class="txt-numantrian">SCAN UNTUK ANTRI</h2>
                                         <br>
                                         <img class="logo-antrekuy" src="/assets/antrekuy_logodark.png" alt="">
@@ -52,7 +53,7 @@
         <br>
         <div class="txt-download-qr-2">Download, print, dan tempel di tembok/etalase</div>
         <div class="button-antrian">
-            <button type="button" class="btn-antrian btn-lg"><a href="">Lihat Antrian</a></button>
+            <button type="button" class="btn-antrian btn-lg"><a href="">Download QR Code</a></button>
         </div>
 
         <br>
