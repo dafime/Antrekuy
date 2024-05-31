@@ -71,7 +71,7 @@ class AntrianController extends Controller
 
         $antrian_id = $id;
         $nama_pembeli = $request->nama;
-        $SudahDilayani = true;
+        $SudahDilayani = false;
         $jawaban1 = $request->jawaban1;
         $jawaban2 = $request->jawaban2;
         $jawaban3 = $request->jawaban3;
@@ -88,7 +88,6 @@ class AntrianController extends Controller
     }
 
     public function InfoAntrian($id, $pesanan_id){
-        $pesanan_id = DB::table('pesanans')->join('antrian_usahas', 'antrian_usahas.id', '=', 'pesanans.antrian_id')->where('pesanans.antrian_id', $id)->value('pesanans.id');
         $pesanan=Pesanan::find($pesanan_id);
         $antrian_usaha = AntrianUsaha::find($id);
         return view('InfoAntrian', compact('pesanan','antrian_usaha'));
@@ -96,6 +95,16 @@ class AntrianController extends Controller
 
     public function daftarAntrian($id){
         $listantrian = Db::select('select p.id, nama_pembeli, CreatedDateTime, SudahDilayani, Jawaban1, Jawaban2, Jawaban3 from pesanans p left outer join antrian_usahas a on p.antrian_id = a.id where SudahDilayani = false');
-        return view('daftarAntrian', compact('listantrian'));
+        $pesanan_id = DB::table('pesanans')->join('antrian_usahas', 'antrian_usahas.id', '=', 'pesanans.antrian_id')->where('pesanans.antrian_id', $id)->where('SudahDilayani', false)->min('pesanans.id');
+        $pesanan_sudahdilayani = Db::select('select max(p.id) as id, max(nama_pembeli) as nama_pembeli, max(CreatedDateTime) as CreatedDateTime from pesanans p left outer join antrian_usahas a on p.antrian_id = a.id where SudahDilayani = true');
+        $antrian_usaha_id = DB::table('antrian_usahas')->join('users', 'users.id', '=', 'antrian_usahas.user_id')->where('antrian_usahas.user_id', $id)->value('antrian_usahas.id');
+        return view('daftarAntrian', compact('listantrian', 'pesanan_id', 'antrian_usaha_id', 'pesanan_sudahdilayani'));
+    }
+
+    public function panggilAntrian($id, $pesanan_id){
+        $pesanan = Pesanan::find($pesanan_id);
+        $pesanan->SudahDilayani = true;
+        $pesanan->save();
+        return redirect('/daftarantrian'.'/'.$id);
     }
 }

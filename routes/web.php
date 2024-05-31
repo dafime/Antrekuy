@@ -87,6 +87,7 @@ Route::post('/CekAntrian/{id}', [AntrianController::class, 'addPesanan']);
 
 Route::get('/InfoAntrian/{id}/{pesanan_id}', [AntrianController::class, 'InfoAntrian']);
 Route::get('/daftarantrian/{id}', [AntrianController::class, 'daftarAntrian']);
+Route::get('/panggilAntrian/{id}/{pesanan_id}', [AntrianController::class, 'panggilAntrian']);
 
 
 

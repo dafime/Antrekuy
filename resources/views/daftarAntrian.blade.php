@@ -35,15 +35,15 @@
                                 </div>
 
                                 <br>
-
+                                @foreach ( $pesanan_sudahdilayani as $items)
                                 <div class="container-home">
                                     <div class="ket-antri">
-                                        <h3 class="txt-numantrian">No. Antrian: 017</h3>
-                                        <div>28 Maret 2024, 11:25:01 AM</div>
-                                        <div>Nama: Timoti</div>
-                                        <div>Jumlah Antrian Sekarang: 025</div>
+                                        <h3 class="txt-numantrian">No. Antrian: {{$items->id}}</h3>
+                                        <div>{{$items->CreatedDateTime}}</div>
+                                        <div>Nama: {{$items->nama_pembeli}}</div>
                                     </div>
                                 </div>
+                                @endforeach
 
 
                             </div>
@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="button-antrian">
-            <button type="button" class="btn-antrian btn-lg"><a href="">Panggil Antrian Berikutnya</a></button>
+            <button type="button" class="btn-antrian btn-lg"><a href="/panggilAntrian/{{$antrian_usaha_id}}/{{$pesanan_id}}">Panggil Antrian Berikutnya</a></button>
         </div>
 
         <br>
@@ -71,14 +71,13 @@
         <div class="container-antrian">
             <h3 style="color:#C9AF97;">Daftar Antrian</h3>
             <br>
-           
+
             @foreach ($listantrian as $items)
             <div class="container-daf-antrian">
                 <div class="daf-antrian">
                     <h3 class="txt-numantrian" style="color: black;">No. Antrian: <?php echo $items->id ?></h3>
                     <div><?= $items->CreatedDateTime ?></div>
-                    <div>Nama: Timoti</div>
-                    <div>Jumlah Antrian Sekarang: 025</div>
+                    <div><?= $items->nama_pembeli ?></div>
                     <br>
                     <a href="" style="color: #d8604e;">Hapus dari Antrian</a>
                 </div>
