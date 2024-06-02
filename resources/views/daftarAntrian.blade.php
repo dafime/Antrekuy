@@ -84,7 +84,9 @@
                     <div><?= $items->CreatedDateTime ?></div>
                     <div><?= $items->nama_pembeli ?></div>
                     <br>
-                    <a href="" style="color: #d8604e;">Hapus dari Antrian</a>
+                    <a href="/delete/{{$items->id}}" style="color: #d8604e;">Hapus dari Antrian</a>
+                    &ensp;&ensp;&ensp;&ensp;&ensp;
+                    <a href="/detailPesanan/{{$antrian_usaha_id}}/{{$items->id}}" style="color: black;">Detail Pesanan</a>
                 </div>
             </div>
             <br>
