@@ -80,7 +80,12 @@
                                             @endif
                                             @endforeach
                                         </div>
-                                        <div>Jumlah Antrian Sekarang: 025</div>
+                                        <?php $i = 0 ?>
+                                        <div>Jumlah Antrian Sekarang: @foreach ( $semua_pesanan as $items )
+                                            <?php $i++ ?>
+                                            @endforeach
+                                            <?= $i ?>
+                                        </div>
                                     </div>
                                 </div>
 

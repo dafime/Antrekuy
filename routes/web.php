@@ -23,42 +23,6 @@ Route::get('/', function () {
 
 Route::get('/home', [AuthController::class, 'home']);
 
-// Route::get('/editprofile', function () {
-//     return view('editProfile');
-// });
-
-Route::get('/daftarantrian', function () {
-    return view('daftarAntrian');
-});
-
-Route::get('/downloadQR', function () {
-    return view('downloadQrcode');
-});
-
-// Route::get('/InfoAntrian', function () {
-//     return view('InfoAntrian');
-// });
-
-Route::get('/CekAntrian', function () {
-     return view('CekAntrian');
- });
-
- Route::get('/setupAntrian', function () {
-     return view('setupAntrian');
- });
-
-Route::get('/EditAntrian', function () {
-    return view('EditAntrian');
-});
-
-// Route::get('/loginPage', function () {
-//     return view('loginPage');
-// });
-
-// Route::get('/Register', function (){
-//     return view('RegisPage');
-// });
-
 //authentication user
 Route::get('/loginPage', [AuthController::class, 'signin']);
 Route::post('/loginPage', [AuthController::class, 'login']);
@@ -75,29 +39,39 @@ Route::put('/updateProfileNamaUsaha/{id}', [UserController::class, 'updateProfil
 Route::get('/auth/redirect', [GoogleController::class, 'redirect']);
 Route::get('auth/google/call-back', [GoogleController::class, 'callback']);
 
-//antrian
+
+//------------------------antrian---------------------------------------------------------------
+
+//add dan update antrian
 Route::get('/setupAntrian/{id}', [AntrianController::class, 'antrian']);
 Route::put('/addAntrian/{id}', [AntrianController::class, 'addAntrian']);
+Route::get('/EditAntrian/{id}', [AntrianController::class, 'editAntrian']);
+Route::put('/editAntrian/{id}', [AntrianController::class, 'updateAntrian']);
+
+//list antrian
+Route::get('/daftarantrian/{id}', [AntrianController::class, 'daftarAntrian']);
+Route::get('/panggilAntrian/{id}/{pesanan_id}', [AntrianController::class, 'panggilAntrian']);
+
+//pause dan start antrian
+Route::get('/pauseAntrian/{id}', [AntrianController::class, 'pauseAntrian']);
+Route::get('/startAntrian/{id}', [AntrianController::class, 'startAntrian']);
+
+//hapus pesanan dari user
+Route::get('/delete/{id}',[AntrianController::class, 'deletePesanan']);
+Route::get('/detailPesanan/{id}/{pesanan_id}',[AntrianController::class, 'detailPesanan']);
 
 
-//route habis scan
-// Route::get('/InfoAntrian', 'YourController@method')->name('Info.Antrian');
+//-----------------------------------------Pembeli-------------------------------------------------------------------
+//route habis scan (Pembeli)
 Route::get('/CekAntrian/{id}', [AntrianController::class, 'CekAntrian']);
 Route::post('/CekAntrian/{id}', [AntrianController::class, 'addPesanan']);
 
 Route::get('/InfoAntrian/{id}/{pesanan_id}', [AntrianController::class, 'InfoAntrian']);
-Route::get('/daftarantrian/{id}', [AntrianController::class, 'daftarAntrian']);
-Route::get('/panggilAntrian/{id}/{pesanan_id}', [AntrianController::class, 'panggilAntrian']);
-Route::get('/pauseAntrian/{id}', [AntrianController::class, 'pauseAntrian']);
-Route::get('/startAntrian/{id}', [AntrianController::class, 'startAntrian']);
-
-Route::get('/delete/{id}',[AntrianController::class, 'deletePesanan']);
-Route::get('/detailPesanan/{id}/{pesanan_id}',[AntrianController::class, 'detailPesanan']);
 
 Route::get('/keluarAntrian/{id}/{pesanan_id}',[AntrianController::class, 'keluarAntrian']);
 
 
-
-// Route::get('/homePage', function () {
-//     return view('homePage');
-// })->middleware(['auth', 'verified'])->name('homePage');
+//----------------------------------------QRCode---------------------------------------------
+Route::get('/downloadQR', function () {
+    return view('downloadQrcode');
+});

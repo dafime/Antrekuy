@@ -18,7 +18,8 @@ class AuthController extends Controller
         if (! empty(auth()->user()->id)) {
             $pesanan = DB::select('select max(id) as noantrian from pesanans where SudahDilayani = true');
             $antrian_usaha = DB::select('select antrianaktif from antrian_usahas');
-            return view('homePage', compact('pesanan', 'antrian_usaha'));
+            $semua_pesanan = DB::select('select p.id as id from pesanans p left outer join antrian_usahas a on p.antrian_id = a.id where SudahDilayani = false');
+            return view('homePage', compact('pesanan', 'antrian_usaha', 'semua_pesanan'));
         }
         return redirect('/');
     }

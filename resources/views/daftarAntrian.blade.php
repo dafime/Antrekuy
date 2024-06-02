@@ -32,7 +32,7 @@
                                         Antrian Sekarang
                                     </h2>
                                     <div class="img-settings">
-                                        <a href="/setupAntrian"><img src="assets/set_tings.png" alt=""></a>
+                                        <a href="/EditAntrian/{{$antrian_usaha_id}}"><img src="{{asset('assets/set_tings.png')}}" alt="" ></a>
                                     </div>
                                 </div>
 

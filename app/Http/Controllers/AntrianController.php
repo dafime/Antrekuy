@@ -38,25 +38,26 @@ class AntrianController extends Controller
         $AntrianUsaha->lokasiusaha = $request->lokasi;
         $AntrianUsaha->save();
 
-        // $nama_antrian = $request->nama_antrian;
-        // $AntrianUsaha = AntrianUsaha::find(User::find($id),['user_id']);
-        // $AntrianUsaha->$alokasi_waktu = $request->alokasi_waktu;
-        // $AntrianUsaha->$pertanyaan1 = $request->pertanyaan1;
-        // $AntrianUsaha->$pertanyaan2 = $request->pertanyaan2;
-        // $AntrianUsaha->$pertanyaan3 = $request->pertanyaan3;
-        // $AntrianUsaha->$lokasi = $request->lokasi;
-
-
-        // DB::table('antrian_usahas')->where('user_id', '=', User::find($id))->insert([
-        //     'nama_antrian' => $nama_antrian,
-        //     'alokasi_waktu ' => $alokasi_waktu ,
-        //     'pertanyaan1' => $pertanyaan1,
-        //     'pertanyaan2' => $pertanyaan2,
-        //     'pertanyaan3' => $pertanyaan3,
-        //     'lokasi' => $lokasi,
-        // ]);
-
         return redirect('/downloadQR');
+    }
+
+    public function editAntrian($id){
+        $antrian_usaha = AntrianUsaha::find($id);
+        return view('editAntrian', compact('antrian_usaha'));
+    }
+
+    public function updateAntrian(Request $request,$id){
+   
+        $AntrianUsaha = AntrianUsaha::find($id);
+        $AntrianUsaha->namaantrian = $request->nama_antrian;
+        $AntrianUsaha->time = $request->alokasi_waktu;
+        $AntrianUsaha->pertanyaan1 = $request->pertanyaan1;
+        $AntrianUsaha->pertanyaan2 = $request->pertanyaan2;
+        $AntrianUsaha->pertanyaan3 = $request->pertanyaan3;
+        $AntrianUsaha->lokasiusaha = $request->lokasi;
+        $AntrianUsaha->save();
+
+        return redirect()->back()->with('message', "Data Antrian Berhasil Diubah");
     }
 
     public function CekAntrian($id)
