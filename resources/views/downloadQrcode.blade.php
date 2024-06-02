@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Download Qr Code</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="downloadQrCodeantrekuy.css">
+    <link rel="stylesheet" href="{{asset('downloadQrCodeantrekuy.css')}}">
     <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
 </head>
 
@@ -53,7 +53,7 @@
         <br>
         <div class="txt-download-qr-2">Download, print, dan tempel di tembok/etalase</div>
         <div class="button-antrian">
-            <button type="button" class="btn-antrian btn-lg"><a href="">Download QR Code</a></button>
+            <button type="button" class="btn-antrian btn-lg"><a href="/QRCode/{{$id}}">Download QR Code</a></button>
         </div>
 
         <br>

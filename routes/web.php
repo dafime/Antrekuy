@@ -72,6 +72,5 @@ Route::get('/keluarAntrian/{id}/{pesanan_id}',[AntrianController::class, 'keluar
 
 
 //----------------------------------------QRCode---------------------------------------------
-Route::get('/downloadQR', function () {
-    return view('downloadQrcode');
-});
+Route::get('/downloadQR/{id}', [AntrianController::class, 'downloadQrcode']);
+Route::get('/QRCode/{id}', [AntrianController::class, 'QRCode']);

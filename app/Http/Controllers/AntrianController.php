@@ -9,6 +9,7 @@ use App\Models\User;
 use CreateAntrianUsahasTable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use LaravelQRCode\Facades\QRCode;
 
 class AntrianController extends Controller
 {
@@ -38,7 +39,7 @@ class AntrianController extends Controller
         $AntrianUsaha->lokasiusaha = $request->lokasi;
         $AntrianUsaha->save();
 
-        return redirect('/downloadQR');
+        return redirect('/downloadQR'.'/'.$antrian_usaha_id);
     }
 
     public function editAntrian($id){
@@ -150,5 +151,15 @@ class AntrianController extends Controller
         } else {
             return redirect()->back()->with('keluar_failed', 'Antrian Sudah Dilayani Tidak Bisa Keluar Antrian');
         }
+    }
+
+    public function downloadQrcode($id){
+        return view('downloadQrcode', compact('id'));
+    }
+
+    public function QRCode($id){
+        $file = public_path('barcode.png');
+        QRCode::url('http://127.0.0.1:8000/CekAntrian/'.$id)->setOutfile($file)->setSize(10)->png();
+        return redirect()->back();
     }
 }

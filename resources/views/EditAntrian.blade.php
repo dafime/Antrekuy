@@ -131,7 +131,7 @@
                                     </div>
 
                                     <div class="button-qr">
-                                        <button type="button" class="btn-qr btn-lg"><a href="/downloadQR">Lihat QR Code</a></button>
+                                        <button type="button" class="btn-qr btn-lg"><a href="/downloadQR/{{$antrian_usaha->id}}">Lihat QR Code</a></button>
                                     </div>
 
                                 </form>
