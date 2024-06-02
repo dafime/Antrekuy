@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('DaftarAntrianantrekuy.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('DaftarAntrianantrekuy.css')}}">
     <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
 </head>
 
@@ -79,16 +78,16 @@
             <br>
 
             @foreach ($listantrian as $items)
-                <div class="container-daf-antrian">
-                    <div class="daf-antrian">
-                        <h3 class="txt-numantrian" style="color: black;">No. Antrian: <?php echo $items->id; ?></h3>
-                        <div><?= $items->CreatedDateTime ?></div>
-                        <div><?= $items->nama_pembeli ?></div>
-                        <br>
-                        <a href="" style="color: #d8604e;">Hapus dari Antrian</a>
-                    </div>
+            <div class="container-daf-antrian">
+                <div class="daf-antrian">
+                    <h3 class="txt-numantrian" style="color: black;">No. Antrian: <?php echo $items->id ?></h3>
+                    <div><?= $items->CreatedDateTime ?></div>
+                    <div><?= $items->nama_pembeli ?></div>
+                    <br>
+                    <a href="" style="color: #d8604e;">Hapus dari Antrian</a>
                 </div>
-                <br>
+            </div>
+            <br>
             @endforeach
         </div>
     </section>

@@ -22,11 +22,6 @@
     </body>
 
     <section class="section-up h-100 gradient-form">
-    @if (session()->has('keluar_failed'))
-            <div class="alert alert-danger">
-                {{ session()->get('keluar_failed') }}
-            </div>
-        @endif
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-10">
@@ -43,10 +38,8 @@
 
                                 <div class="container-home">
                                     <div class="ket-antri">
-                                        <h3 class="txt-numantrian">No. Antrian Anda: {{$pesanan->id}}</h3>
-                                        <div>{{$pesanan->CreatedDateTime}}</div>
-                                        <div>Est. Waktu Tunggu: 20 Menit</div>
-                                        <div>No Antrian Saat ini: 017</div>
+                                        <br><br>
+                                        <h3 class="txt-numantrian">No. Antrian ke : {{$pesanan->id}}</h3>
                                     </div>
                                 </div>
 
@@ -86,18 +79,10 @@
                 </div>
             </div>
         </form>
-        <div class="button-notif">
-            <button type="button" class="btn-notif btn-lg"><a href="">Izinkan Notifikasi</a></button>
-        </div>
+        <br>
+        <br>
         <div class="button-keluar">
-            <button type="button" class="btn-keluar btn-lg"><a href="/keluarAntrian/{{$antrian_usaha->id}}/{{$pesanan->id}}">Keluar Antrian</a></button>
-        </div>
-        <div class="pesan-penting">
-            <p style="text-decoration: underline">PENTING:</p>
-            <p>Aplikasi AntreKuy merupakan perantara yang membantu komunikasi anatara pemilik usaha dengan pelanggan.
-            </p>
-            <p>Pastikan Anda hadir sesaat nomor antrian Anda dipanggil. Kelalaian dari sisi pelanggan yang mengggangu
-                hak pelanggan lain sehingga dikeluarkan dari antrian bukanlah tanggung jawab AntreKuy.</p>
+            <button type="button" class="btn-keluar btn-lg"><a href="/daftarantrian/{{$antrian_usaha->id}}">Kembali</a></button>
         </div>
     </section>
 
