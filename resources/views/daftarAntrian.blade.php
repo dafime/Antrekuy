@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+    <title>List Antrian</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('DaftarAntrianantrekuy.css')}}">
     <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
@@ -79,7 +79,9 @@
                     <div><?= $items->CreatedDateTime ?></div>
                     <div><?= $items->nama_pembeli ?></div>
                     <br>
-                    <a href="" style="color: #d8604e;">Hapus dari Antrian</a>
+                    <a href="/delete/{{$items->id}}" style="color: #d8604e;">Hapus dari Antrian</a>
+                    &ensp; &ensp; &ensp; &ensp; &ensp;
+                    <a href="/detailPesanan/{{$antrian_usaha_id}}/{{$items->id}}" style="color: black;">Detail Pesanan</a>
                 </div>
             </div>
             <br>

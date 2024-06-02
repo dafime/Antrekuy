@@ -37,7 +37,7 @@
 
                                 <div class="container-home">
                                     <div class="ket-antri">
-                                        <h3 class="txt-numantrian">No. Antrian Saat Ini: 017</h3>
+                                        <h3 class="txt-numantrian">No. Antrian Saat Ini: {{$pesanan_id}}</h3>
                                         <div>Est. Waktu Tunggu: 18 Menit</div>
                                         <br>
                                         <div>Anda berada di lokasi {{$user->nama_usaha}}</div>

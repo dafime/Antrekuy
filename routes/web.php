@@ -89,6 +89,11 @@ Route::get('/InfoAntrian/{id}/{pesanan_id}', [AntrianController::class, 'InfoAnt
 Route::get('/daftarantrian/{id}', [AntrianController::class, 'daftarAntrian']);
 Route::get('/panggilAntrian/{id}/{pesanan_id}', [AntrianController::class, 'panggilAntrian']);
 
+Route::get('/delete/{id}',[AntrianController::class, 'deletePesanan']);
+Route::get('/detailPesanan/{id}/{pesanan_id}',[AntrianController::class, 'detailPesanan']);
+
+Route::get('/keluarAntrian/{id}/{pesanan_id}',[AntrianController::class, 'keluarAntrian']);
+
 
 
 // Route::get('/homePage', function () {

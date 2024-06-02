@@ -62,9 +62,10 @@ class AntrianController extends Controller
     public function CekAntrian($id)
     {
         $user = User::find($id);
+        $pesanan_id = DB::table('pesanans')->join('antrian_usahas', 'antrian_usahas.id', '=', 'pesanans.antrian_id')->where('pesanans.antrian_id', $id)->where('SudahDilayani', true)->max('pesanans.id');
         $antrian_usaha_id = DB::table('antrian_usahas')->join('users', 'users.id', '=', 'antrian_usahas.user_id')->where('antrian_usahas.user_id', $id)->value('antrian_usahas.id');
         $AntrianUsaha = AntrianUsaha::find($antrian_usaha_id);
-        return view('CekAntrian', compact('user', 'AntrianUsaha'));
+        return view('CekAntrian', compact('user', 'AntrianUsaha', 'pesanan_id'));
     }
 
     public function addPesanan(Request $request, $id){
@@ -106,5 +107,27 @@ class AntrianController extends Controller
         $pesanan->SudahDilayani = true;
         $pesanan->save();
         return redirect('/daftarantrian'.'/'.$id);
+    }
+
+    public function deletePesanan($id){
+        DB::table('pesanans')->where('id', $id)->delete();
+
+        return redirect()->back();
+    }
+
+    public function detailPesanan($id, $pesanan_id){
+        $pesanan=Pesanan::find($pesanan_id);
+        $antrian_usaha = AntrianUsaha::find($id);
+        return view('detailPesanan', compact('pesanan','antrian_usaha'));
+    }
+
+    public function keluarAntrian($id, $pesanan_id){
+        if (DB::table('pesanans')->where('id', $pesanan_id)->value('SudahDilayani') == false) {
+            DB::table('pesanans')->where('id', $pesanan_id)->delete();
+
+            return redirect('/CekAntrian'.'/'.$id);
+        } else {
+            return redirect()->back()->with('keluar_failed', 'Antrian Sudah Dilayani Tidak Bisa Keluar Antrian');
+        }
     }
 }
