@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('DaftarAntrianantrekuy.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('DaftarAntrianantrekuy.css') }}">
     <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
 </head>
 
@@ -31,18 +32,21 @@
                                     <h2 class="nama-usaha">
                                         Antrian Sekarang
                                     </h2>
-                                    <a href="" style="text-decoration: none; color:#303030;"><img src="assets/material-symbols_settings.svg" alt=""></a>
+                                    <div class="img-settings">
+                                        <a href="/setupAntrian"><img src="assets/set_tings.png"
+                                                alt=""></a>
+                                    </div>
                                 </div>
 
                                 <br>
-                                @foreach ( $pesanan_sudahdilayani as $items)
-                                <div class="container-home">
-                                    <div class="ket-antri">
-                                        <h3 class="txt-numantrian">No. Antrian: {{$items->id}}</h3>
-                                        <div>{{$items->CreatedDateTime}}</div>
-                                        <div>Nama: {{$items->nama_pembeli}}</div>
+                                @foreach ($pesanan_sudahdilayani as $items)
+                                    <div class="container-home">
+                                        <div class="ket-antri">
+                                            <h3 class="txt-numantrian">No. Antrian: {{ $items->id }}</h3>
+                                            <div>{{ $items->CreatedDateTime }}</div>
+                                            <div>Nama: {{ $items->nama_pembeli }}</div>
+                                        </div>
                                     </div>
-                                </div>
                                 @endforeach
 
 
@@ -53,7 +57,9 @@
             </div>
         </div>
         <div class="button-antrian">
-            <button type="button" class="btn-antrian btn-lg"><a href="/panggilAntrian/{{$antrian_usaha_id}}/{{$pesanan_id}}">Panggil Antrian Berikutnya</a></button>
+            <button type="button" class="btn-antrian btn-lg"><a
+                    href="/panggilAntrian/{{ $antrian_usaha_id }}/{{ $pesanan_id }}">Panggil Antrian
+                    Berikutnya</a></button>
         </div>
 
         <br>
@@ -73,16 +79,16 @@
             <br>
 
             @foreach ($listantrian as $items)
-            <div class="container-daf-antrian">
-                <div class="daf-antrian">
-                    <h3 class="txt-numantrian" style="color: black;">No. Antrian: <?php echo $items->id ?></h3>
-                    <div><?= $items->CreatedDateTime ?></div>
-                    <div><?= $items->nama_pembeli ?></div>
-                    <br>
-                    <a href="" style="color: #d8604e;">Hapus dari Antrian</a>
+                <div class="container-daf-antrian">
+                    <div class="daf-antrian">
+                        <h3 class="txt-numantrian" style="color: black;">No. Antrian: <?php echo $items->id; ?></h3>
+                        <div><?= $items->CreatedDateTime ?></div>
+                        <div><?= $items->nama_pembeli ?></div>
+                        <br>
+                        <a href="" style="color: #d8604e;">Hapus dari Antrian</a>
+                    </div>
                 </div>
-            </div>
-            <br>
+                <br>
             @endforeach
         </div>
     </section>

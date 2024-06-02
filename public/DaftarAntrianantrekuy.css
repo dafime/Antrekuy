@@ -57,6 +57,15 @@ body{
     padding-top: 1.3rem;
 }
 
+.img-settings{
+    width: 25px;
+    /* height: 14px; */
+    margin-bottom: 4px;
+    background-image: url(assets/set_tings.png) ;
+    background-repeat:no-repeat;
+    background-size: contain;
+}
+
 .nama-usaha{
     color: white;
 }

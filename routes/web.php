@@ -43,9 +43,9 @@ Route::get('/CekAntrian', function () {
      return view('CekAntrian');
  });
 
-// Route::get('/setupAntrian', function () {
-//     return view('setupAntrian');
-// });
+ Route::get('/setupAntrian', function () {
+     return view('setupAntrian');
+ });
 
 Route::get('/EditAntrian', function () {
     return view('EditAntrian');
