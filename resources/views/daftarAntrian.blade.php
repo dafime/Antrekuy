@@ -85,7 +85,7 @@
                     <div><?= $items->nama_pembeli ?></div>
                     <br>
                     <a href="/delete/{{$items->id}}" style="color: #d8604e;">Hapus dari Antrian</a>
-                    &ensp;&ensp;&ensp;&ensp;&ensp;
+                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
                     <a href="/detailPesanan/{{$antrian_usaha_id}}/{{$items->id}}" style="color: black;">Detail Pesanan</a>
                 </div>
             </div>
