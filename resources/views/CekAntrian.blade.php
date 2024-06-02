@@ -21,6 +21,7 @@
     </body>
 
     <section class="section-up h-100 gradient-form">
+        @if ($AntrianUsaha->antrianaktif == true) 
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-10">
@@ -38,7 +39,12 @@
                                 <div class="container-home">
                                     <div class="ket-antri">
                                         <h3 class="txt-numantrian">No. Antrian Saat Ini: {{$pesanan_id}}</h3>
-                                        <div>Est. Waktu Tunggu: 18 Menit</div>
+                                        <?php $i= 1 ?>
+                                        <div>Est. Waktu Tunggu: @foreach ($pesanan as $items)
+                                                <?php $i++ ?>
+                                            @endforeach
+                                            <?= $i*$AntrianUsaha->time?> Menit
+                                        </div>
                                         <br>
                                         <div>Anda berada di lokasi {{$user->nama_usaha}}</div>
                                     </div>
@@ -96,6 +102,53 @@
             <p>Pastikan Anda hadir sesaat nomor antrian Anda dipanggil. Kelalaian dari sisi pelanggan yang mengggangu
                 hak pelanggan lain sehingga dikeluarkan dari antrian bukanlah tanggung jawab AntreKuy.</p>
         </div>
+        @else
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-10">
+                    <div class="text-black">
+                        <div class="row g-0">
+                            <div class="card-body p-md-5 mx-md-4">
+                                <div class="nama-profile" style="color: #303030;">
+                                    <h2 class="nama-usaha">
+                                        {{$AntrianUsaha->namaantrian}}
+                                    </h2>
+                                </div>
+
+                                <br>
+
+                                <div class="container-home">
+                                    <div class="ket-antri">
+                                        <h3 class="txt-numantrian">No. Antrian Saat Ini: {{$pesanan_id}}</h3>
+                                        <?php $i= 1 ?>
+                                        <div>Est. Waktu Tunggu: @foreach ($pesanan as $items)
+                                                <?php $i++ ?>
+                                            @endforeach
+                                            <?= $i*$AntrianUsaha->time?> Menit
+                                        </div>
+                                        <br>
+                                        <div>Anda berada di lokasi {{$user->nama_usaha}}</div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <h1 style="color: #d8604e; text-align: center;">Antrian Sedang Dihentikan</h1>
+        <br>
+        <div class="pesan-penting">
+            <p style="text-decoration: underline">PENTING:</p>
+            <p>Aplikasi AntreKuy merupakan perantara yang membantu komunikasi anatara pemilik usaha dengan pelanggan.
+            </p>
+            <p>Pastikan Anda hadir sesaat nomor antrian Anda dipanggil. Kelalaian dari sisi pelanggan yang mengggangu
+                hak pelanggan lain sehingga dikeluarkan dari antrian bukanlah tanggung jawab AntreKuy.</p>
+        </div>
+        @endif
     </section>
 
     <style>

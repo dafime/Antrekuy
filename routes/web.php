@@ -88,6 +88,8 @@ Route::post('/CekAntrian/{id}', [AntrianController::class, 'addPesanan']);
 Route::get('/InfoAntrian/{id}/{pesanan_id}', [AntrianController::class, 'InfoAntrian']);
 Route::get('/daftarantrian/{id}', [AntrianController::class, 'daftarAntrian']);
 Route::get('/panggilAntrian/{id}/{pesanan_id}', [AntrianController::class, 'panggilAntrian']);
+Route::get('/pauseAntrian/{id}', [AntrianController::class, 'pauseAntrian']);
+Route::get('/startAntrian/{id}', [AntrianController::class, 'startAntrian']);
 
 Route::get('/delete/{id}',[AntrianController::class, 'deletePesanan']);
 Route::get('/detailPesanan/{id}/{pesanan_id}',[AntrianController::class, 'detailPesanan']);
