@@ -40,7 +40,7 @@
                                 @foreach ($pesanan_sudahdilayani as $items)
                                 <div class="container-home">
                                     <div class="ket-antri">
-                                        <h3 class="txt-numantrian">No. Antrian: {{ $items->id }}</h3>
+                                        <h3 class="txt-numantrian">No. Antrian: {{ $items->noantrian }}</h3>
                                         <div>{{ $items->CreatedDateTime }}</div>
                                         <div>Nama: {{ $items->nama_pembeli }}</div>
                                         <div style="text-align:end;"><a href="/detailPesanan/{{$antrian_usaha_id}}/{{$items->id}}" style="color: black;">Detail Pesanan</a></div>
@@ -85,7 +85,7 @@
             @foreach ($listantrian as $items)
             <div class="container-daf-antrian">
                 <div class="daf-antrian">
-                    <h3 class="txt-numantrian" style="color: black;">No. Antrian: <?php echo $items->id ?></h3>
+                    <h3 class="txt-numantrian" style="color: black;">No. Antrian: <?php echo $items->noantrian ?></h3>
                     <div><?= $items->CreatedDateTime ?></div>
                     <div><?= $items->nama_pembeli ?></div>
                     <br>

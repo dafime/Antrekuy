@@ -42,7 +42,7 @@
 
                                 <div class="container-home">
                                     <div class="ket-antri">
-                                        <h3 class="txt-numantrian">No. Antrian Anda: {{$pesanan->id}}</h3>
+                                        <h3 class="txt-numantrian">No. Antrian Anda: {{$pesanan->noantrian}}</h3>
                                         <div>{{$pesanan->CreatedDateTime}}</div>
                                         <?php $i = 0 ?>
                                         <div>Est. Waktu Tunggu:

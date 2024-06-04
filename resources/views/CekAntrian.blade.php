@@ -21,7 +21,12 @@
     </body>
 
     <section class="section-up h-100 gradient-form">
-        @if ($AntrianUsaha->antrianaktif == true) 
+        @if (session()->has('message'))
+        <div class="alert alert-danger">
+            {{ session()->get('message') }}
+        </div>
+        @endif
+        @if ($AntrianUsaha->antrianaktif == true)
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-xl-10">
@@ -39,11 +44,11 @@
                                 <div class="container-home">
                                     <div class="ket-antri">
                                         <h3 class="txt-numantrian">No. Antrian Saat Ini: {{$pesanan_id}}</h3>
-                                        <?php $i= 1 ?>
+                                        <?php $i = 1 ?>
                                         <div>Est. Waktu Tunggu: @foreach ($pesanan as $items)
-                                                <?php $i++ ?>
+                                            <?php $i++ ?>
                                             @endforeach
-                                            <?= $i*$AntrianUsaha->time?> Menit
+                                            <?= $i * $AntrianUsaha->time ?> Menit
                                         </div>
                                         <br>
                                         <div>Anda berada di lokasi {{$user->nama_usaha}}</div>
@@ -120,11 +125,11 @@
                                 <div class="container-home">
                                     <div class="ket-antri">
                                         <h3 class="txt-numantrian">No. Antrian Saat Ini: {{$pesanan_id}}</h3>
-                                        <?php $i= 1 ?>
+                                        <?php $i = 1 ?>
                                         <div>Est. Waktu Tunggu: @foreach ($pesanan as $items)
-                                                <?php $i++ ?>
+                                            <?php $i++ ?>
                                             @endforeach
-                                            <?= $i*$AntrianUsaha->time?> Menit
+                                            <?= $i * $AntrianUsaha->time ?> Menit
                                         </div>
                                         <br>
                                         <div>Anda berada di lokasi {{$user->nama_usaha}}</div>

@@ -39,7 +39,7 @@
                                 <div class="container-home">
                                     <div class="ket-antri">
                                         <br><br>
-                                        <h3 class="txt-numantrian">No. Antrian ke : {{$pesanan->id}}</h3>
+                                        <h3 class="txt-numantrian">No. Antrian ke : {{$pesanan->noantrian}}</h3>
                                     </div>
                                 </div>
 
