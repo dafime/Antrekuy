@@ -6,6 +6,7 @@ use App\Models\AntrianUsaha;
 use App\Models\Pembeli;
 use App\Models\Pesanan;
 use App\Models\User;
+use Carbon\Carbon;
 use CreateAntrianUsahasTable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -77,8 +78,13 @@ class AntrianController extends Controller
         }
 
         $antrian_id = $id;
+        $CurrentDateTime =  Carbon::now();
+        $currentDay = $CurrentDateTime->format('d/m/y');
         $noantrian = DB::table('pesanans')->join('antrian_usahas', 'antrian_usahas.id', '=', 'pesanans.antrian_id')->where('pesanans.antrian_id', $id)->max('noantrian');
-        if(is_null($noantrian)){
+        $CreatedDateTime = DB::table('pesanans')->join('antrian_usahas', 'antrian_usahas.id', '=', 'pesanans.antrian_id')->where('pesanans.antrian_id', $id)->max('CreatedDateTime');
+        $CreatedDateTime = Carbon::parse($CreatedDateTime);
+        $CreatedDay = $CreatedDateTime->format('d/m/y');
+        if(is_null($noantrian) || $currentDay != $CreatedDay){
             $noantrian = 1;
         }else{
             $noantrian++;
