@@ -158,8 +158,12 @@ class AntrianController extends Controller
     }
 
     public function QRCode($id){
-        $file = public_path('barcode.png');
-        QRCode::url('http://127.0.0.1:8000/CekAntrian/'.$id)->setOutfile($file)->setSize(10)->png();
-        return redirect()->back();
+        $file = public_path('Barcode.png');
+        QRCode::url('http://127.0.0.1:8000/CekAntrian/'.$id)->setOutfile($file)->setSize(25)->png();
+        if (file_exists($file)) {
+            return response()->download($file, 'Barcode.png');
+        } else {
+            abort(404, 'File not found');
+        }
     }
 }
