@@ -117,7 +117,7 @@
                                     </div>
 
                                     <div class="button-masuk">
-                                        <input type="submit" class="btn-masuk btn-lg" value="Simpan & Generate QR Code">
+                                        <input type="submit" class="btn-masuk btn-lg" style="color: white;" value="Simpan">
                                     </div>
 
                                 </form>

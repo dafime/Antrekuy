@@ -59,7 +59,7 @@
         <br>
 
         <div class="button-report">
-            <button type="button" class="btn-report btn-lg"><a href="">Report Harian Antrian</a></button>
+            <button type="button" class="btn-report btn-lg"><a href="">Lihat Antrian</a></button>
         </div>
     </section>
 
