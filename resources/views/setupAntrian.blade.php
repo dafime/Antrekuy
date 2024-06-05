@@ -15,6 +15,7 @@
 
     <body>
         <nav class="navbar">
+            <a href="/home"><img src="{{ asset('assets/back-icon.png')}}" alt=""></a>
             <div class="logoNavbar">
             </div>
         </nav>

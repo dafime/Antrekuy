@@ -15,10 +15,11 @@
 <body>
 
     <body>
-        <nav class="navbar">
+        <div class="navbar">
+            <a href="/"><img src="assets/back-icon.png" alt=""></a>
             <div class="logoNavbar">
             </div>
-        </nav>
+        </div>
     </body>
 
     <section class="h-100 gradient-form">

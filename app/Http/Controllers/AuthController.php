@@ -18,7 +18,7 @@ class AuthController extends Controller
     {
         if (! empty(auth()->user()->id)) {
             $antrian_usaha_id = DB::table('antrian_usahas')->join('users', 'users.id', '=', 'antrian_usahas.user_id')->where('antrian_usahas.user_id', auth()->user()->id)->value('antrian_usahas.id');
-            $pesanan = DB::select('select max(p.id) as noantrian from pesanans p left outer join antrian_usahas a on p.antrian_id = a.id where SudahDilayani = true and antrian_id ='.$antrian_usaha_id);
+            $pesanan = DB::select('select max(p.id) as id, max(noantrian) as noantrian from pesanans p left outer join antrian_usahas a on p.antrian_id = a.id where SudahDilayani = true and antrian_id ='.$antrian_usaha_id);
             $antrian_usaha = AntrianUsaha::find($antrian_usaha_id);
             $semua_pesanan = DB::select('select p.id as id from pesanans p left outer join antrian_usahas a on p.antrian_id = a.id where SudahDilayani = false and antrian_id ='.$antrian_usaha_id);
             return view('homePage', compact('pesanan', 'antrian_usaha', 'semua_pesanan'));

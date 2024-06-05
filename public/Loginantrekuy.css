@@ -8,10 +8,17 @@ body{
     margin-bottom: -3%;
 }
 
+.navbar img{
+    width: 30px;
+    height: 30px;
+    margin-bottom: 60px;
+    margin-left: 10px;
+}
+
 .logoNavbar{
     width: 70px;
     height: 100px;
-    margin-left: 20px;
+    margin-right: 20px;
     background-image: url(assets/logo-nav.png) ;
     background-repeat:no-repeat;
     background-size: contain;
