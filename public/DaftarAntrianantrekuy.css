@@ -16,10 +16,18 @@ body{
     box-shadow:0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.289);
 }
 
+.navbar img{
+    width: 30px;
+    height: 30px;
+    margin-bottom: 60px;
+    margin-left: 10px;
+}
+
 .logoNavbar{
     width: 70px;
-    height: 100px;
-    margin-left: 20px;
+    height: 70px;
+    margin-right: 20px;
+    margin-bottom: 30px;
     background-image: url(assets/logo-nav.png) ;
     background-repeat:no-repeat;
     background-size: contain;

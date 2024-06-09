@@ -11,12 +11,13 @@ body{
     height: 60px;
     margin-bottom: -3%;
     box-shadow:0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.289);
+    justify-content: end;
 }
 
 .logoNavbar{
     width: 70px;
     height: 100px;
-    margin-left: 20px;
+    margin-right: 20px;
     background-image: url(assets/logo-nav.png) ;
     background-repeat:no-repeat;
     background-size: contain;

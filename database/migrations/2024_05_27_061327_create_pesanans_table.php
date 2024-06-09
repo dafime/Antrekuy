@@ -18,6 +18,7 @@ class CreatePesanansTable extends Migration
             $table->id();
             $table->unsignedBigInteger('antrian_id');
             $table->foreign('antrian_id')->references('id')->on('antrian_usahas')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('noantrian')->nullable();
             $table->string('nama_pembeli');
             $table->timestamp('CreatedDateTime')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->boolean('SudahDilayani')->nullable();

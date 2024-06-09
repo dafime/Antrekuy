@@ -15,6 +15,7 @@
 
     <body>
         <nav class="navbar">
+            <a href="/home"><img src="{{ asset('assets/back-icon.png')}}" alt=""></a>
             <div class="logoNavbar">
             </div>
         </nav>
@@ -117,7 +118,7 @@
                                     </div>
 
                                     <div class="button-masuk">
-                                        <input type="submit" class="btn-masuk btn-lg" value="Simpan & Generate QR Code">
+                                        <input type="submit" class="btn-masuk btn-lg" style="color: white;" value="Simpan">
                                     </div>
 
                                 </form>

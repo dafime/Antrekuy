@@ -72,13 +72,12 @@
                                             {{$item->noantrian}}
                                             @endforeach
                                         </div>
-                                        <div>Status: @foreach($antrian_usaha as $item)
-                                            @if ($item->antrianaktif==1)
+                                        <div>Status: 
+                                            @if ($antrian_usaha->antrianaktif==1)
                                             Aktif
                                             @else
                                             Tidak Aktif
                                             @endif
-                                            @endforeach
                                         </div>
                                         <?php $i = 0 ?>
                                         <div>Jumlah Antrian Sekarang: @foreach ( $semua_pesanan as $items )
