@@ -68,11 +68,17 @@
                                         {{ Auth::user()->nama_usaha }}
                                     </div>
                                     <div class="ket-antri">
-                                        <div class="txt-numantrian">No. Antrian: @foreach($pesanan as $item)
+                                        @foreach($pesanan as $item)
+                                        @if(is_null($item->noantrian))
+                                        <h2 style="color: #303030;">
+                                            Belum Ada Antrian
+                                        </h2>
+                                        Klik "Lihat Antrian" untuk Setup Antrian terlebih dahulu.
+                                        @else
+                                        <div class="txt-numantrian">No. Antrian:
                                             {{$item->noantrian}}
-                                            @endforeach
                                         </div>
-                                        <div>Status: 
+                                        <div>Status:
                                             @if ($antrian_usaha->antrianaktif==1)
                                             Aktif
                                             @else
@@ -85,6 +91,8 @@
                                             @endforeach
                                             <?= $i ?>
                                         </div>
+                                        @endif
+                                        @endforeach
                                     </div>
                                 </div>
 

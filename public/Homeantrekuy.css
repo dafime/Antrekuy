@@ -16,8 +16,9 @@ body{
 
 .logoNavbar{
     width: 70px;
-    height: 100px;
+    height: 70px;
     margin-right: 20px;
+    margin-bottom: 30px;
     background-image: url(assets/logo-nav.png) ;
     background-repeat:no-repeat;
     background-size: contain;

@@ -35,7 +35,7 @@
                                 @endif
 
                                 <div class="daftar">
-                                    <h4 class="textDaftar">Edit Settings Antrian</h4>
+                                    <h4 class="textDaftar">Pengaturan Antrian</h4>
                                     <a class="textMoreDaftar">Pengaturan sistem antrian digital</a>
                                 </div>
 

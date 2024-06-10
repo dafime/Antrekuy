@@ -33,12 +33,22 @@
                                         Antrian Sekarang
                                     </h2>
                                     <div class="img-settings">
-                                        <a href="/EditAntrian/{{$antrian_usaha_id}}"><img src="{{asset('assets/set_tings.png')}}" alt="" ></a>
+                                        <a href="/EditAntrian/{{$antrian_usaha_id}}"><img src="{{asset('assets/set_tings.png')}}" alt=""></a>
                                     </div>
                                 </div>
 
                                 <br>
                                 @foreach ($pesanan_sudahdilayani as $items)
+                                @if (is_null($items->noantrian))
+                                <div class="container-home">
+                                    <div class="ket-antri">
+                                        <h2 style="color: #303030;">
+                                            Belum Ada Antrian
+                                        </h2>
+                                        Klik "Panggil Antrian Berikutnya" untuk melanjutkan antrian.
+                                    </div>
+                                </div>
+                                @else
                                 <div class="container-home">
                                     <div class="ket-antri">
                                         <h3 class="txt-numantrian">No. Antrian: {{ $items->noantrian }}</h3>
@@ -47,6 +57,7 @@
                                         <div style="text-align:end;"><a href="/detailPesanan/{{$antrian_usaha_id}}/{{$items->id}}" style="color: black;">Detail Pesanan</a></div>
                                     </div>
                                 </div>
+                                @endif
                                 @endforeach
 
 
@@ -57,8 +68,13 @@
             </div>
         </div>
         <div class="button-antrian">
+            @if (is_null($pesanan_id))
+            <button type="button" class="btn-antrian btn-lg"><a href="">Panggil Antrian
+                    Berikutnya</a></button>
+            @else
             <button type="button" class="btn-antrian btn-lg"><a href="/panggilAntrian/{{ $antrian_usaha_id }}/{{ $pesanan_id }}">Panggil Antrian
                     Berikutnya</a></button>
+            @endif
         </div>
 
         <br>

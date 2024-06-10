@@ -42,7 +42,7 @@
                                     {{method_field('PUT')}}
                                     <div class="form3">
                                         <img class="img-profile" src="{{asset('assets/Profile.svg')}}">&ensp;&ensp;<label class="form-label" for="name">Nama</label>
-                                        <input name="name" type="text" id="name" class="form-control" placeholder="" />
+                                        <input name="name" type="text" id="name" class="form-control" placeholder="" value="{{$user->name}}" />
                                         @error('name')
                                         {{ $message }}
                                         @enderror
@@ -50,14 +50,14 @@
 
                                     <div class="form4">
                                         <img class="img-business" src="{{asset('assets/Business.svg')}}">&ensp;&ensp;<label class="form-label" for="nama_usaha">Nama Usaha</label>
-                                        <input name="nama_usaha" type="text" id="nama_usaha" class="form-control" />
+                                        <input name="nama_usaha" type="text" id="nama_usaha" class="form-control" value="{{$user->nama_usaha}}" />
                                         @error('nama_usaha')
                                         {{ $message }}
                                         @enderror
                                     </div><br>
 
                                     <div class="button-masuk">
-                                        <input class="btn-masuk btn-lg" type="submit" value="Simpan"></input>
+                                        <input class="btn-masuk btn-lg" style="color: white;" type="submit" value="Simpan"></input>
                                     </div><br>
 
                                     <div class="button-batal">
