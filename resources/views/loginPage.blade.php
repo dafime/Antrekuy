@@ -58,9 +58,9 @@
                                         @enderror
                                     </div>
 
-                                    <div class="textFP">
+                                    <!-- <div class="textFP">
                                         <a class="textfp1" href="#!">Lupa password?</a>
-                                    </div>
+                                    </div> -->
 
                                     <!-- <div class="text-center pt-1 mb-5 pb-1">
                                         <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
@@ -82,6 +82,10 @@
                                             <img class="img-google" src="assets/img-google-.png">
                                             <a href="auth/redirect">Login With Google </a></button>
 
+                                    </div>
+
+                                    <div class="textCheckAkun">
+                                        <a class="textCheckAkun1" href="/Register">Belum punya akun?</a>
                                     </div>
 
                                     {{-- <div class="row mb-3">

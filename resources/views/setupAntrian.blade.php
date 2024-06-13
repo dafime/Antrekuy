@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Setup Antrian Page</title>
+    <title>Setup Antrean Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('setupAntrian.css')}}">
     <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
@@ -30,24 +30,24 @@
                             <div class="card-body p-md-5 mx-md-4">
 
                                 <div class="daftar">
-                                    <h4 class="textDaftar">Setup Antrian</h4>
-                                    <a class="textMoreDaftar">Atur detail informasi antrian</a>
+                                    <h4 class="textDaftar">Setup Antrean</h4>
+                                    <a class="textMoreDaftar">Atur detail informasi antrean</a>
                                 </div>
 
                                 <form action="/addAntrian/{{$user->id}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     {{method_field('PUT')}}
                                     <div class="form3">
-                                        <label class="form-label" for="form2Example11">Nama Antrian</label>
+                                        <label class="form-label" for="form2Example11">Nama Antrean</label>
                                         <div class="space-Text-Check">
                                             <input name="nama_antrian" type="text" id="nama_antrian" class="form-control-questOld" placeholder="" />
                                         </div>
                                     </div>
 
                                     <div class="form4">
-                                        <label class="form-label" for="form2Example22">Alokasi Waktu Antrian per Orang
+                                        <label class="form-label" for="form2Example22">Alokasi Waktu Antrean per Orang
                                             (Menit)</label>
-                                        <a class="pesan">*untuk est.lama antrian</a>
+                                        <a class="pesan">*untuk est.lama antrean</a>
                                         <!-- <input type="" id="form2Example22" class="form-control" /> -->
                                     </div>
 

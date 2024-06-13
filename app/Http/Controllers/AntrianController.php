@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PostCreated;
 use App\Models\AntrianUsaha;
 use App\Models\Pembeli;
 use App\Models\Pesanan;
@@ -115,13 +116,33 @@ class AntrianController extends Controller
         $antrian_usaha = AntrianUsaha::find($id);
         $pesanan_saatini_id = DB::table('pesanans')->join('antrian_usahas', 'antrian_usahas.id', '=', 'pesanans.antrian_id')->where('pesanans.antrian_id', $id)->where('SudahDilayani', true)->max('pesanans.noantrian');
         $semua_pesanan = DB::select('select p.id as id, SudahDilayani from pesanans p left outer join antrian_usahas a on p.antrian_id = a.id where antrian_id ='.$id);
-        return view('InfoAntrian', compact('pesanan','antrian_usaha', 'pesanan_saatini_id', 'semua_pesanan'));
+        $pesanan_teratas = DB::table('pesanans')->join('antrian_usahas', 'antrian_usahas.id', '=', 'pesanans.antrian_id')->where('pesanans.antrian_id', $id)->where('SudahDilayani', false)->min('pesanans.noantrian');
+        if(DB::table('pesanans')->join('antrian_usahas', 'antrian_usahas.id', '=', 'pesanans.antrian_id')->where('pesanans.antrian_id', $id)->where('SudahDilayani', true)->max('pesanans.noantrian') == $pesanan->noantrian){
+
+            $data = 'Anda sedang dilayani dimohon untuk segera mendatangi tempat';
+        }else{
+            $data = 'Anda berada diantrian paling atas dimohon untuk mendatangi tempat';
+        }
+
+        event(new PostCreated($data));
+        return view('InfoAntrian', compact('pesanan','antrian_usaha', 'pesanan_saatini_id', 'semua_pesanan', 'pesanan_teratas'));
     }
 
     public function daftarAntrian($id){
-        $listantrian = Db::select('select p.id, noantrian, nama_pembeli, CreatedDateTime, SudahDilayani, Jawaban1, Jawaban2, Jawaban3 from pesanans p left outer join antrian_usahas a on p.antrian_id = a.id where SudahDilayani = false and antrian_id='.$id);
-        $pesanan_id = DB::table('pesanans')->join('antrian_usahas', 'antrian_usahas.id', '=', 'pesanans.antrian_id')->where('pesanans.antrian_id', $id)->where('SudahDilayani', false)->min('pesanans.id');
-        $pesanan_sudahdilayani = Db::select('select max(p.id) as id, max(noantrian) as noantrian, max(nama_pembeli) as nama_pembeli, max(CreatedDateTime) as CreatedDateTime from pesanans p left outer join antrian_usahas a on p.antrian_id = a.id where SudahDilayani = true and antrian_id ='.$id);
+        $CurrentDateTime =  Carbon::now();
+        $currentDay = $CurrentDateTime->format('d/m/y');
+        $noantrian = DB::table('pesanans')->join('antrian_usahas', 'antrian_usahas.id', '=', 'pesanans.antrian_id')->where('pesanans.antrian_id', $id)->max('noantrian');
+        $CreatedDateTime = DB::table('pesanans')->join('antrian_usahas', 'antrian_usahas.id', '=', 'pesanans.antrian_id')->where('pesanans.antrian_id', $id)->value('CreatedDateTime');
+        $CreatedDateTime = Carbon::parse($CreatedDateTime);
+        $CreatedDay = $CreatedDateTime->format('d/m/y');
+        $listantrian = Db::select('select p.id, noantrian, nama_pembeli, CreatedDateTime, SudahDilayani, Jawaban1, Jawaban2, Jawaban3 from pesanans p left outer join antrian_usahas a on p.antrian_id = a.id where SudahDilayani = false and antrian_id= 0');
+        $pesanan_id = DB::table('pesanans')->join('antrian_usahas', 'antrian_usahas.id', '=', 'pesanans.antrian_id')->where('pesanans.antrian_id', '0')->where('SudahDilayani', false)->min('pesanans.id');
+        $pesanan_sudahdilayani = Db::select('select max(p.id) as id, max(noantrian) as noantrian, max(nama_pembeli) as nama_pembeli, max(CreatedDateTime) as CreatedDateTime from pesanans p left outer join antrian_usahas a on p.antrian_id = a.id where SudahDilayani = true and antrian_id = 0');
+        if($currentDay == $CreatedDay){   
+            $listantrian = Db::select('select p.id, noantrian, nama_pembeli, CreatedDateTime, SudahDilayani, Jawaban1, Jawaban2, Jawaban3 from pesanans p left outer join antrian_usahas a on p.antrian_id = a.id where SudahDilayani = false and antrian_id='.$id);
+            $pesanan_id = DB::table('pesanans')->join('antrian_usahas', 'antrian_usahas.id', '=', 'pesanans.antrian_id')->where('pesanans.antrian_id', $id)->where('SudahDilayani', false)->min('pesanans.id');
+            $pesanan_sudahdilayani = Db::select('select max(p.id) as id, max(noantrian) as noantrian, max(nama_pembeli) as nama_pembeli, max(CreatedDateTime) as CreatedDateTime from pesanans p left outer join antrian_usahas a on p.antrian_id = a.id where SudahDilayani = true and antrian_id ='.$id);
+        }
         $antrian_usaha_id = $id;
         $antrian_usaha = AntrianUsaha::find($antrian_usaha_id);
         return view('daftarAntrian', compact('listantrian', 'pesanan_id', 'antrian_usaha_id', 'pesanan_sudahdilayani', 'antrian_usaha'));
@@ -173,7 +194,8 @@ class AntrianController extends Controller
     }
 
     public function downloadQrcode($id){
-        return view('downloadQrcode', compact('id'));
+        $antrian_usaha = AntrianUsaha::find($id);
+        return view('downloadQrcode', compact('id', 'antrian_usaha'));
     }
 
     public function QRCode($id){
@@ -184,5 +206,9 @@ class AntrianController extends Controller
         } else {
             abort(404, 'File not found');
         }
+    }
+
+    public function laporan($id, $antrian_id){
+        return view('generateLaporan', compact('id', 'antrian_id'));
     }
 }

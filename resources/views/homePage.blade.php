@@ -64,18 +64,18 @@
                                 <br>
 
                                 <div class="container-home">
-                                    <div class="container-home-header" style="text-transform:uppercase;">ANTRI
+                                    <div class="container-home-header" style="text-transform:uppercase;">ANTRE
                                         {{ Auth::user()->nama_usaha }}
                                     </div>
                                     <div class="ket-antri">
                                         @foreach($pesanan as $item)
                                         @if(is_null($item->noantrian))
                                         <h2 style="color: #303030;">
-                                            Belum Ada Antrian
+                                            Belum Ada Antrean
                                         </h2>
-                                        Klik "Lihat Antrian" untuk Setup Antrian terlebih dahulu.
+                                        Klik "Lihat Antrean" untuk Setup Antrean terlebih dahulu.
                                         @else
-                                        <div class="txt-numantrian">No. Antrian:
+                                        <div class="txt-numantrian">No. Antrean:
                                             {{$item->noantrian}}
                                         </div>
                                         <div>Status:
@@ -86,7 +86,7 @@
                                             @endif
                                         </div>
                                         <?php $i = 0 ?>
-                                        <div>Jumlah Antrian Sekarang: @foreach ( $semua_pesanan as $items )
+                                        <div>Jumlah Antrean Sekarang: @foreach ( $semua_pesanan as $items )
                                             <?php $i++ ?>
                                             @endforeach
                                             <?= $i ?>
@@ -105,13 +105,13 @@
         </div>
         <br><br><br><br>
         <div class="button-antrian">
-            <button type="button" class="btn-antrian btn-lg"><a href="/setupAntrian/{{Auth::user()->id}}">Lihat Antrian</a></button>
+            <button type="button" class="btn-antrian btn-lg"><a href="/setupAntrian/{{Auth::user()->id}}">Lihat Antrean</a></button>
         </div>
 
         <br>
 
         <div class="button-report">
-            <button type="button" class="btn-report btn-lg"><a href="">Report Harian Antrian</a></button>
+            <button type="button" class="btn-report btn-lg"><a href="/laporan/{{Auth::user()->id}}/{{$antrian_usaha->id}}">Report Harian Antrean</a></button>
         </div>
     </section>
     @endif

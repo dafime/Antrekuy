@@ -68,16 +68,6 @@ body{
     margin-right: 13%;
 }
 
-.textFP {
-    display: flex;
-    justify-content: right;
-    margin-bottom: 5%;
-}
-
-.textFP a {
-    color: #C9AF97;
-}
-
 .button-masuk {
     display: flex;
     justify-content: center;
@@ -117,5 +107,14 @@ body{
     color: black;
     text-decoration: none;
     margin-right: 17% ;
+}
+
+.textCheckAkun{
+    text-align: center;
+    margin-top: 7%;
+}
+
+.textCheckAkun1{
+    color: #C9AF97;
 }
 

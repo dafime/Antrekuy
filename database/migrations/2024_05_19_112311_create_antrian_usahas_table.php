@@ -24,8 +24,6 @@ class CreateAntrianUsahasTable extends Migration
             $table->string('pertanyaan2')->nullable();
             $table->string('pertanyaan3')->nullable();
             $table->string('lokasiusaha')->nullable();
-            $table->string('qrcode')->nullable();
-            $table->integer('noantriansekarang')->nullable();
             $table->timestamps();
         });
     }

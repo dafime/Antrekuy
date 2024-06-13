@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cek Antrian</title>
+    <title>Cek Antrean</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('CekAntrian.css')}}">
     <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
@@ -43,7 +43,13 @@
 
                                 <div class="container-home">
                                     <div class="ket-antri">
-                                        <h3 class="txt-numantrian">No. Antrian Saat Ini: {{$pesanan_id}}</h3>
+                                        <h3 class="txt-numantrian">@if(is_null($pesanan_id))
+                                        Saat ini Tidak Ada Antrean
+                                        @else
+                                        No. Antrean Saat Ini:
+                                        {{$pesanan_id}}
+                                        @endif
+                                    </h3>
                                         <?php $i = 1 ?>
                                         <div>Est. Waktu Tunggu: @foreach ($pesanan as $items)
                                             <?php $i++ ?>
@@ -104,8 +110,8 @@
             <p style="text-decoration: underline">PENTING:</p>
             <p>Aplikasi AntreKuy merupakan perantara yang membantu komunikasi anatara pemilik usaha dengan pelanggan.
             </p>
-            <p>Pastikan Anda hadir sesaat nomor antrian Anda dipanggil. Kelalaian dari sisi pelanggan yang mengggangu
-                hak pelanggan lain sehingga dikeluarkan dari antrian bukanlah tanggung jawab AntreKuy.</p>
+            <p>Pastikan Anda hadir sesaat nomor antrean Anda dipanggil. Kelalaian dari sisi pelanggan yang mengggangu
+                hak pelanggan lain sehingga dikeluarkan dari antrean bukanlah tanggung jawab AntreKuy.</p>
         </div>
         @else
         <div class="container h-100">
@@ -144,14 +150,14 @@
             </div>
         </div>
         <br>
-        <h1 style="color: #d8604e; text-align: center;">Antrian Sedang Dihentikan</h1>
+        <h1 style="color: #d8604e; text-align: center;">Antrean Sedang Dihentikan</h1>
         <br>
         <div class="pesan-penting">
             <p style="text-decoration: underline">PENTING:</p>
             <p>Aplikasi AntreKuy merupakan perantara yang membantu komunikasi anatara pemilik usaha dengan pelanggan.
             </p>
-            <p>Pastikan Anda hadir sesaat nomor antrian Anda dipanggil. Kelalaian dari sisi pelanggan yang mengggangu
-                hak pelanggan lain sehingga dikeluarkan dari antrian bukanlah tanggung jawab AntreKuy.</p>
+            <p>Pastikan Anda hadir sesaat nomor antrean Anda dipanggil. Kelalaian dari sisi pelanggan yang mengggangu
+                hak pelanggan lain sehingga dikeluarkan dari antrean bukanlah tanggung jawab AntreKuy.</p>
         </div>
         @endif
     </section>

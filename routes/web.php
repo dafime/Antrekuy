@@ -71,6 +71,9 @@ Route::get('/InfoAntrian/{id}/{pesanan_id}', [AntrianController::class, 'InfoAnt
 Route::get('/keluarAntrian/{id}/{pesanan_id}',[AntrianController::class, 'keluarAntrian']);
 
 
-//----------------------------------------QRCode---------------------------------------------
+//----------------------------------------QRCode-----------------------------------------------------------------
 Route::get('/downloadQR/{id}', [AntrianController::class, 'downloadQrcode']);
 Route::get('/QRCode/{id}', [AntrianController::class, 'QRCode']);
+
+//--------------------------------------Report Antrian-------------------------------------------------------------
+Route::get('/laporan/{id}/{antrian_id}', [AntrianController::class, 'laporan']);

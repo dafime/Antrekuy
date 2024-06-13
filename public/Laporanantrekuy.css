@@ -1,0 +1,115 @@
+body{
+    background-color: #FFFDF4;
+    /* background-image: url(assets/Image-background-home.png) ; */
+    background-repeat:no-repeat;
+    background-size: contain;
+    background-size: 100% 42%;
+}
+
+.navbar{
+    background-color: #C9AF97;
+    height: 60px;
+    margin-bottom: -3%;
+    box-shadow:0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.289);
+    justify-content: space-between;
+}
+
+.navbar img{
+    width: 30px;
+    height: 30px;
+    margin-bottom: 60px;
+    margin-left: 10px;
+}
+
+.logoNavbar{
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    background-image: url(assets/logo-nav.png) ;
+    background-repeat:no-repeat;
+    background-size: contain;
+}
+
+.container{
+    padding-top: 0rem;
+    padding-bottom: 3rem;
+}
+
+.container-home{
+    background-color: white;
+    border-radius: 12px;
+    border: 0.5px solid #C9AF97;
+    padding-bottom: 0%;
+    height: 69%;
+}
+
+.container-home-header{
+    background-color: #F8F9FA;
+    border-radius: 12px 12px 0px 0px;
+    height: 50px;
+    padding-top: 14px;
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+.popup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 70%;
+}
+
+.card-popup-title{
+    display: flex;
+    justify-content: center;
+    font-size: large;
+}
+
+.button-masuk-popup {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.form-popup{
+    margin-top: 10%;
+}
+
+.btn-masuk-popup {
+    background-color: #C9AF97;
+    color: white;
+    border-radius: 4px;
+    border-style: none;
+    box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 90%;
+    border-radius: 20px;
+}
+
+.card-popup{
+    /* backdrop-filter: blur(14px); */
+    color: #865f5f;
+    border-style: none;
+    box-shadow: 0 4px 12px 0 rgba(155, 153, 153, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    /* width: 90%; */
+    border-radius: 20px;
+}
+
+.ket-antri{
+    padding-top: 14px;
+    padding-left: 20px;
+}
+
+.txt-numantrian{
+    color: #C9AF97;
+    font-weight: bold;
+}
+
+.nama-profile{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nama-usaha{
+    color: white;
+}
