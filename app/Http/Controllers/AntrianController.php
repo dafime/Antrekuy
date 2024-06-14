@@ -38,7 +38,8 @@ class AntrianController extends Controller
         $AntrianUsaha->pertanyaan1 = $request->pertanyaan1;
         $AntrianUsaha->pertanyaan2 = $request->pertanyaan2;
         $AntrianUsaha->pertanyaan3 = $request->pertanyaan3;
-        $AntrianUsaha->lokasiusaha = $request->lokasi;
+        $AntrianUsaha->latitude = $request->latitudeInput;
+        $AntrianUsaha->longitude = $request->longitudeInput;
         $AntrianUsaha->save();
 
         return redirect('/downloadQR'.'/'.$antrian_usaha_id);
@@ -57,7 +58,8 @@ class AntrianController extends Controller
         $AntrianUsaha->pertanyaan1 = $request->pertanyaan1;
         $AntrianUsaha->pertanyaan2 = $request->pertanyaan2;
         $AntrianUsaha->pertanyaan3 = $request->pertanyaan3;
-        $AntrianUsaha->lokasiusaha = $request->lokasi;
+        $AntrianUsaha->latitude = $request->latitudeInput;
+        $AntrianUsaha->longitude = $request->longitudeInput;
         $AntrianUsaha->save();
 
         return redirect()->back()->with('message', "Data Antrian Berhasil Diubah");
@@ -70,6 +72,7 @@ class AntrianController extends Controller
         $pesanan_id = DB::table('pesanans')->join('antrian_usahas', 'antrian_usahas.id', '=', 'pesanans.antrian_id')->where('pesanans.antrian_id', $antrian_usaha_id)->where('SudahDilayani', true)->max('noantrian');
         $AntrianUsaha = AntrianUsaha::find($antrian_usaha_id);
         $pesanan = DB::select('select p.id as id from pesanans p left outer join antrian_usahas a on p.antrian_id = a.id where SudahDilayani = false and antrian_id ='.$antrian_usaha_id);
+
         return view('CekAntrian', compact('user', 'AntrianUsaha', 'pesanan_id', 'pesanan'));
     }
 

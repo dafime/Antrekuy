@@ -107,11 +107,26 @@ body {
     padding-left: 2rem;
     padding-right: 2rem;}
 
-
-
-
-
-
+/* untuk popup box */
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    min-height: calc(100% - 1rem);
+}
+.modal-content {
+    height: 40vh; /* 80% of viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+}
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Darken the backdrop */
+}
+body.modal-open {
+    overflow: hidden; /* Prevent scrolling */
+}
 
 
 

@@ -23,7 +23,8 @@ class CreateAntrianUsahasTable extends Migration
             $table->string('pertanyaan1')->nullable();
             $table->string('pertanyaan2')->nullable();
             $table->string('pertanyaan3')->nullable();
-            $table->string('lokasiusaha')->nullable();
+            $table->decimal('latitude', 10, 8)->nullable();
+            $table->decimal('longitude', 11, 8)->nullable();
             $table->timestamps();
         });
     }
