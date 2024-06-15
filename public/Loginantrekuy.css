@@ -65,7 +65,7 @@ body{
     width: 25px;
     height: 25px;
     margin-bottom: 4px;
-    margin-right: 13%;
+    /* margin-right: 13%; */
 }
 
 .button-masuk {
@@ -106,7 +106,7 @@ body{
 .btn-google a {
     color: black;
     text-decoration: none;
-    margin-right: 17% ;
+    /* margin-right: 17% ; */
 }
 
 .textCheckAkun{

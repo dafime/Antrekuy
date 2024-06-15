@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Antrean</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('DaftarAntrianantrekuy.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('DaftarAntrianantrekuy.css') }}">
     <link rel="shortcut icon" href="{{ asset('assets/logo-tab.png') }}">
 </head>
 
@@ -15,7 +16,7 @@
 
     <body>
         <nav class="navbar">
-            <a href="/home"><img src="{{ asset('assets/back-icon.png')}}" alt=""></a>
+            <a href="/home"><img src="{{ asset('assets/back-icon.png') }}" alt=""></a>
             <div class="logoNavbar">
             </div>
         </nav>
@@ -33,31 +34,35 @@
                                         Antrean Sekarang
                                     </h2>
                                     <div class="img-settings">
-                                        <a href="/EditAntrian/{{$antrian_usaha_id}}"><img src="{{asset('assets/set_tings.png')}}" alt=""></a>
+                                        <a href="/EditAntrian/{{ $antrian_usaha_id }}"><img
+                                                src="{{ asset('assets/set_tings.png') }}" alt=""></a>
                                     </div>
                                 </div>
 
                                 <br>
                                 @foreach ($pesanan_sudahdilayani as $items)
-                                @if (is_null($items->noantrian))
-                                <div class="container-home">
-                                    <div class="ket-antri">
-                                        <h2 style="color: #303030;">
-                                            Belum Ada Antrean
-                                        </h2>
-                                        Klik "Panggil Antrean Berikutnya" untuk melanjutkan antrian.
-                                    </div>
-                                </div>
-                                @else
-                                <div class="container-home">
-                                    <div class="ket-antri">
-                                        <h3 class="txt-numantrian">No. Antrean: {{ $items->noantrian }}</h3>
-                                        <div>{{ $items->CreatedDateTime }}</div>
-                                        <div>Nama: {{ $items->nama_pembeli }}</div>
-                                        <div style="text-align:end;"><a href="/detailPesanan/{{$antrian_usaha_id}}/{{$items->id}}" style="color: black;">Detail Pesanan</a></div>
-                                    </div>
-                                </div>
-                                @endif
+                                    @if (is_null($items->noantrian))
+                                        <div class="container-home">
+                                            <div class="ket-antri">
+                                                <h2 style="color: #303030;">
+                                                    Belum Ada Antrean
+                                                </h2>
+                                                Klik "Panggil Antrean Berikutnya" untuk melanjutkan antrian.
+                                            </div>
+                                        </div>
+                                    @else
+                                        <div class="container-home">
+                                            <div class="ket-antri">
+                                                <h3 class="txt-numantrian">No. Antrean: {{ $items->noantrian }}</h3>
+                                                <div>{{ $items->CreatedDateTime }}</div>
+                                                <div>Nama: {{ $items->nama_pembeli }}</div>
+                                                <div class="btn-detail-utama">
+                                                    <div class="btn-detail1"> <a
+                                                            href="/detailPesanan/{{ $antrian_usaha_id }}/{{ $items->id }}">Detail</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    @endif
                                 @endforeach
 
 
@@ -67,26 +72,29 @@
                 </div>
             </div>
         </div>
+        <br>
         <div class="button-antrian">
             @if (is_null($pesanan_id))
-            <button type="button" class="btn-antrian btn-lg"><a href="">Panggil Antrean
-                    Berikutnya</a></button>
+                <button type="button" class="btn-antrian btn-lg"><a href="">Panggil Antrean
+                        Berikutnya</a></button>
             @else
-            <button type="button" class="btn-antrian btn-lg"><a href="/panggilAntrian/{{ $antrian_usaha_id }}/{{ $pesanan_id }}">Panggil Antrean
-                    Berikutnya</a></button>
+                <button type="button" class="btn-antrian btn-lg"><a
+                        href="/panggilAntrian/{{ $antrian_usaha_id }}/{{ $pesanan_id }}">Panggil Antrean
+                        Berikutnya</a></button>
             @endif
         </div>
 
         <br>
         @if ($antrian_usaha->antrianaktif == true)
-
-        <div class="button-pause">
-            <button type="button" class="btn-pause btn-lg"><a href="/pauseAntrian/{{$antrian_usaha_id}}">Pause Antrean</a></button>
-        </div>
+            <div class="button-pause">
+                <button type="button" class="btn-pause btn-lg"><a href="/pauseAntrian/{{ $antrian_usaha_id }}">Pause
+                        Antrean</a></button>
+            </div>
         @else
-        <div class="button-start">
-            <button type="button" class="btn-start btn-lg"><a href="/startAntrian/{{$antrian_usaha_id}}">Start Antrean</a></button>
-        </div>
+            <div class="button-start">
+                <button type="button" class="btn-start btn-lg"><a href="/startAntrian/{{ $antrian_usaha_id }}">Start
+                        Antrean</a></button>
+            </div>
         @endif
 
     </section>
@@ -100,18 +108,24 @@
             <br>
 
             @foreach ($listantrian as $items)
-            <div class="container-daf-antrian">
-                <div class="daf-antrian">
-                    <h3 class="txt-numantrian" style="color: black;">No. Antrean: <?php echo $items->noantrian ?></h3>
-                    <div><?= $items->CreatedDateTime ?></div>
-                    <div>Nama : <?= $items->nama_pembeli ?></div>
-                    <br>
-                    <a href="/delete/{{$items->id}}" style="color: #d8604e;">Hapus dari Antrean</a>
-                    &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-                    <a href="/detailPesanan/{{$antrian_usaha_id}}/{{$items->id}}" style="color: black;">Detail Pesanan</a>
+                <div class="container-daf-antrian">
+                    <div class="daf-antrian">
+                        <h3 class="txt-numantrian" style="color: black;">No. Antrean: <?php echo $items->noantrian; ?></h3>
+                        <div><?= $items->CreatedDateTime ?></div>
+                        <div>Nama : <?= $items->nama_pembeli ?></div>
+                        <br>
+                        <div class="btn-both-kd">
+                            <div class="btn-kick">
+                                <a href="/delete/{{ $items->id }}">Hapus</a>
+                            </div>
+                            <!-- &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; -->
+                            <div class="btn-detail"> <a
+                                    href="/detailPesanan/{{ $antrian_usaha_id }}/{{ $items->id }}">Detail</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <br>
+                <br>
             @endforeach
         </div>
     </section>

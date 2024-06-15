@@ -49,12 +49,12 @@
                     <div class="text-black">
                         <div class="row g-0">
                             <div class="card-body p-md-5 mx-md-4">
-                                <div class="nama-profile" style="color: #303030;">
+                                <div class="nama-profile">
                                     {{ Auth::user()->name }}
-                                    <div>
+                                    <!-- <div>
                                         <a href="/editprofile/{{ Auth::user()->id }}" style="text-decoration: none; color:#303030; padding-right:7px;"><u>Profile</u></a>
                                         <a href="/logout" style="text-decoration: none; color:#f25050;"><u>Keluar</u></a>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                                 <h2 class="nama-usaha" style="text-transform:uppercase;">
@@ -103,7 +103,13 @@
                 </div>
             </div>
         </div>
-        <br><br><br><br>
+        <br>
+        <div class="button-profile">
+            <button type="button" class="btn-profile btn-lg"><a href="/editprofile/{{ Auth::user()->id }}">Profile</a></button>
+        </div>
+
+        <br>
+
         <div class="button-antrian">
             <button type="button" class="btn-antrian btn-lg"><a href="/setupAntrian/{{Auth::user()->id}}">Lihat Antrean</a></button>
         </div>
@@ -113,6 +119,15 @@
         <div class="button-report">
             <button type="button" class="btn-report btn-lg"><a href="/laporan/{{Auth::user()->id}}/{{$antrian_usaha->id}}">Report Harian Antrean</a></button>
         </div>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="button-logout">
+            <button type="button" class="btn-logout btn-lg"><a href="/logout">Logout</a></button>
+        </div>
+        <br>
     </section>
     @endif
 

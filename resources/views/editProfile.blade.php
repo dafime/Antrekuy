@@ -54,12 +54,16 @@
                                         @error('nama_usaha')
                                         {{ $message }}
                                         @enderror
-                                    </div><br>
+                                    </div>
+
+                                    <br>
+                                    <br>
+                                    <br>
 
                                     <div class="button-masuk">
                                         <input class="btn-masuk btn-lg" style="color: white;" type="submit" value="Simpan"></input>
-                                    </div><br>
-
+                                    </div>
+                                    <br>
                                     <div class="button-batal">
                                         <button type="button" class="btn-batal btn-lg"><a href="/home">Kembali</a></button>
                                     </div>

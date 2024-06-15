@@ -88,12 +88,12 @@
                                         <a class="textCheckAkun1" href="/Register">Belum punya akun?</a>
                                     </div>
 
-                                    {{-- <div class="row mb-3">
+                                    <!-- {{-- <div class="row mb-3">
                                         <div class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                             <a href="auth/redirect" class="btn btn-google btn-user btn-block" >
                                                 <i class="fab fa-google fa-fw"></i> Login with Google
                                             </a>
-                                    </div> --}}
+                                    </div> --}} -->
 
                                 </form>
 

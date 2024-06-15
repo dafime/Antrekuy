@@ -98,7 +98,6 @@ body{
 .button-masuk {
     display: flex;
     justify-content: center;
-    margin-top: 10%;
 }
 
 .btn-masuk {
@@ -118,7 +117,6 @@ body{
 .button-batal {
     display: flex;
     justify-content: center;
-    margin-top: -3%;
 }
 
 .btn-batal {
