@@ -25,18 +25,16 @@
         <div class="card-popup" style="width: 23rem; height: 15rem">
             <div class="card-body">
                 <h5 class="card-popup-title">Pilih Tanggal Laporan Yang Ingin Dilihat</h5>
-                <form action="/updateProfileNamaUsaha/{{ Auth::user()->id }}" method="POST" enctype="multipart/form-data">
+                <form id="dateForm" action="/pdf/{{ Auth::user()->id }}" method="GET" enctype="multipart/form-data">
                     @csrf
-                    {{ method_field('PUT') }}
                     <div class="form-popup">
-                        <!-- <img class="img-business" src="assets/Business.svg">&ensp;&ensp;<label class="form-label" for="nama_usaha">Nama Usaha</label> -->
                         <input name="date" type="date" id="date" class="form-control" />
-                        @error('nama_usaha')
+                        @error('date')
                         {{ $message }}
                         @enderror
                     </div>
                     <div class="button-masuk-popup">
-                        <input class="btn-masuk-popup btn-lg" type="submit" value="Unduh">
+                        <button id="submitButton" class="btn-masuk-popup btn-lg" type="button">Unduh</button>
                     </div>
                 </form>
             </div>
@@ -44,5 +42,16 @@
     </div>
 
 </body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('submitButton').addEventListener('click', function() {
+            var date = document.getElementById('date').value;
+            var userId = "{{ Auth::user()->id }}";
+            var url = "/pdf/" + userId + "/" + date;
+            window.location.href = url;
+        });
+    });
+</script>
 
 </html>

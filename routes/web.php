@@ -76,4 +76,5 @@ Route::get('/downloadQR/{id}', [AntrianController::class, 'downloadQrcode']);
 Route::get('/QRCode/{id}', [AntrianController::class, 'QRCode']);
 
 //--------------------------------------Report Antrian-------------------------------------------------------------
-Route::get('/laporan/{id}/{antrian_id}', [AntrianController::class, 'laporan']);
+Route::get('/laporan', [AntrianController::class, 'laporan']);
+Route::get('/pdf/{id}/{tanggal}', [AntrianController::class, 'laporanAntrian']);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use TCPDF;
 use App\Events\PostCreated;
 use App\Models\AntrianUsaha;
 use App\Models\Pembeli;
@@ -211,7 +212,176 @@ class AntrianController extends Controller
         }
     }
 
-    public function laporan($id, $antrian_id){
-        return view('generateLaporan', compact('id', 'antrian_id'));
+    public function laporan()
+    {
+        return view('generateLaporan');
+    }
+
+
+    public function laporanAntrian($id, $tanggal)
+    {
+
+        //data dari DB
+        $namaAntrian = DB::table('antrian_usahas')->join('users', 'users.id', '=', 'antrian_usahas.user_id')->where('user_id', $id)->value('antrian_usahas.namaantrian');
+        $namaUsaha = DB::table('antrian_usahas')->join('users', 'users.id', '=', 'antrian_usahas.user_id')->where('user_id', $id)->value('users.nama_usaha');
+        $alokasiWaktu = DB::table('antrian_usahas')->where('user_id', $id)->value('time')." menit";
+
+        $pertanyaan1 = DB::table('antrian_usahas')->where('user_id', $id)->value('pertanyaan1');
+
+        if (is_null(DB::table('antrian_usahas')->where('user_id', $id)->value('pertanyaan2'))){
+            $pertanyaan2 = '-';
+        } else {
+            $pertanyaan2 = DB::table('antrian_usahas')->where('user_id', $id)->value('pertanyaan2');
+        }
+
+        if (is_null(DB::table('antrian_usahas')->where('user_id', $id)->value('pertanyaan3'))){
+            $pertanyaan3 = '-';
+        } else {
+            $pertanyaan3 = DB::table('antrian_usahas')->where('user_id', $id)->value('pertanyaan3');
+        }
+
+        $jumlahAntrian = DB::table('antrian_usahas')->join('users', 'users.id', '=', 'antrian_usahas.user_id')->join('pesanans', 'pesanans.antrian_id', '=', 'antrian_usahas.id')->where('users.id', $id)->whereDate('pesanans.CreatedDateTime', '=', $tanggal)->count().' antrean';
+
+        $data = [
+            'namaAntrian' => $namaAntrian,
+            'namaUsaha' => $namaUsaha,
+            'tanggal' => $tanggal,
+            'alokasiWaktu' => $alokasiWaktu,
+            'pertanyaan1' => $pertanyaan1,
+            'pertanyaan2' => $pertanyaan2,
+            'pertanyaan3' => $pertanyaan3,
+            'jumlahAntrian' => $jumlahAntrian,
+            'deskripsi' => 'Jumlah Antrian per Jam (00:00 - 23:59)'
+
+        ];
+
+
+        // Load the HTML view as a string
+        $html = view('templateLaporan', $data)->render();
+
+        // Create a new TCPDF instance
+        $pdf = new TCPDF();
+
+        // Set the document title
+        $pdf->SetTitle('Laporan Antrian');
+
+        // Add a page
+        $pdf->AddPage();
+
+        // Write the HTML content
+        $pdf->writeHTML($html);
+
+        // Draw the chart title
+        $pdf->SetXY(15, 100); // Adjust XY position as needed
+        $pdf->Cell(180, 10, $data['deskripsi'], 0, 1, 'C');
+
+        $dataGrafik = DB::select("WITH Hours AS (
+                            SELECT 0 AS Hour
+                            UNION ALL
+                            SELECT 1 UNION ALL
+                            SELECT 2 UNION ALL
+                            SELECT 3 UNION ALL
+                            SELECT 4 UNION ALL
+                            SELECT 5 UNION ALL
+                            SELECT 6 UNION ALL
+                            SELECT 7 UNION ALL
+                            SELECT 8 UNION ALL
+                            SELECT 9 UNION ALL
+                            SELECT 10 UNION ALL
+                            SELECT 11 UNION ALL
+                            SELECT 12 UNION ALL
+                            SELECT 13 UNION ALL
+                            SELECT 14 UNION ALL
+                            SELECT 15 UNION ALL
+                            SELECT 16 UNION ALL
+                            SELECT 17 UNION ALL
+                            SELECT 18 UNION ALL
+                            SELECT 19 UNION ALL
+                            SELECT 20 UNION ALL
+                            SELECT 21 UNION ALL
+                            SELECT 22 UNION ALL
+                            SELECT 23
+                        )
+
+                        SELECT
+                            H.Hour,
+                            COUNT(case when ((au.user_id = '".$id."') and (date(pesanans.CreatedDateTime) = date('".$tanggal."'))) then (pesanans.id) else NULL end) AS order_count
+                        FROM Hours H
+                        LEFT OUTER JOIN pesanans ON H.Hour = HOUR(pesanans.CreatedDateTime)
+                        LEFT OUTER JOIN antrian_usahas au ON pesanans.antrian_id = au.id
+                        LEFT OUTER JOIN users on users.id = au.user_id
+
+
+
+                        GROUP BY H.Hour
+                        ORDER BY H.Hour;
+                    ");
+
+        // Prepare the data for the chart
+        $dataArray = [];
+        foreach ($dataGrafik as $row) {
+            $hour = str_pad($row->Hour, 2, '0', STR_PAD_LEFT);
+            $dataArray[$hour] = $row->order_count;
+        }
+
+        if(max($dataArray) == 0){
+            return 'Data antrean belum ada dan tidak bisa unduh laporan. Silahkan kembali pada tampilan sebelumnya.';
+        } else{
+            $this->generateGrafik($pdf, 15, 165, $dataArray);
+
+            return response()->streamDownload(function() use ($pdf) {
+                $pdf->Output();
+            }, 'Laporan Harian.pdf');
+        }
+    }
+
+        // Output the final PDF to the browser
+
+
+    private function generateGrafik($pdf, $xOffset, $yOffset, $dataArray)
+    {
+        $maxValue = max($dataArray); //untuk hitung max data
+
+        $chartWidth = 180;
+        $chartHeight = 50;
+        $xScale = $chartWidth / (count($dataArray) + 1);
+        $yScale = $chartHeight / $maxValue;
+        $numLines = 5;
+        $lineSpacing = $chartHeight / $numLines;
+
+        //frame
+        $pdf->Rect($xOffset, $yOffset - $chartHeight, $chartWidth, $chartHeight, 'D');
+
+
+        //opacity 30%
+        $pdf->SetAlpha(0.3);
+        for ($i = 0; $i <= $numLines; $i++) {
+            $yPos = $yOffset - ($i * $lineSpacing);
+            $value = $i * ($maxValue / $numLines);
+            $pdf->Line($xOffset, $yPos, $xOffset + $chartWidth, $yPos);
+            $pdf->Text($xOffset - 10, $yPos - 2, number_format($value, 0));
+        }
+        $pdf->SetAlpha(1); //balikin opacity
+
+        // Draw bars and labels
+        $barWidth = $xScale / 1.5;
+        $x = $xOffset + $xScale / 2;
+        foreach ($dataArray as $label => $value) {
+            $barHeight = $value * $yScale;
+
+            // Change bar color
+            $pdf->SetFillColor(0, 100, 200); // Example: Change to any color you want (R, G, B)
+
+            $pdf->Rect($x, $yOffset - $barHeight, $barWidth, $barHeight, 'DF');
+
+            if($value != 0){
+                // Show the data label
+                $pdf->Text($x + ($barWidth / 2) - 3, $yOffset - $barHeight - 5, (string)$value);
+            }
+
+            // Show the time label
+            $pdf->Text($x - 2, $yOffset + 3, $label);
+            $x += $xScale;
+        }
     }
 }

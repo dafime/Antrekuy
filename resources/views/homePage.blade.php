@@ -117,7 +117,7 @@
         <br>
 
         <div class="button-report">
-            <button type="button" class="btn-report btn-lg"><a href="/laporan/{{Auth::user()->id}}/{{$antrian_usaha->id}}">Report Harian Antrean</a></button>
+            <button type="button" class="btn-report btn-lg"><a href="/laporan">Report Harian Antrean</a></button>
         </div>
 
         <br>
